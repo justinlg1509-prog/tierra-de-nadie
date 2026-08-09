@@ -54,17 +54,20 @@
   --color-acento: var(--color-brasa-600);
   --color-filete: var(--color-tinta-900); /* se usa siempre con opacidad */
 
-  /* Tipografía: ambas de fundiciones porteñas.
-     Archivo Black (Omnibus-Type) para rótulo, Chivo (Omnibus-Type) para leer. */
-  --font-display: "Archivo Black", "Arial Black", ui-sans-serif, system-ui,
-    sans-serif;
+  /* Anton para rótulo: grotesca condensada y pesada, registro de chapa esmaltada
+     y cartel de mercado. Al ser estrecha, los titulares largos en castellano
+     caben en menos líneas que con una display ancha.
+     Chivo (Omnibus-Type, Buenos Aires) para leer. */
+  --font-display: "Anton", "Arial Narrow", "Arial Black", ui-sans-serif,
+    system-ui, sans-serif;
   --font-sans: "Chivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif;
 
   /* Escala display fluida */
-  --text-hero: clamp(2.5rem, 8.2vw, 6.75rem);
-  --text-display: clamp(1.875rem, 4.8vw, 3.5rem);
-  --text-title: clamp(1.375rem, 2.8vw, 2.125rem);
+  /* Al ser condensada, Anton "pesa" menos a igual cuerpo: la escala sube un punto */
+  --text-hero: clamp(2.875rem, 9.4vw, 7.75rem);
+  --text-display: clamp(2rem, 5.4vw, 4rem);
+  --text-title: clamp(1.5rem, 3vw, 2.375rem);
 
   /* Ritmo y movimiento */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -168,9 +171,11 @@
   h4 {
     font-family: var(--font-display);
     color: var(--color-fuerte);
-    font-weight: 400; /* Archivo Black solo tiene un grosor: ya es negra */
-    line-height: 0.94;
-    letter-spacing: -0.025em;
+    font-weight: 400; /* Anton solo tiene un grosor: ya viene pesada */
+    line-height: 0.95;
+    /* Anton ya es estrecha de por sí: apretarla más la vuelve ilegible en
+       mayúsculas. Un pelo de aire en vez del track negativo de una display ancha. */
+    letter-spacing: 0.005em;
     text-transform: uppercase;
     text-wrap: balance;
   }
@@ -472,6 +477,53 @@
     font-size: 1rem;
     color: var(--color-acento);
     font-variant-numeric: tabular-nums;
+  }
+
+  /* ---- Pregunta frecuente ----
+     <details> nativo: sin JS, y el contenido va en el DOM aunque esté plegado,
+     que es lo que necesita el FAQPage para que Google lo lea. */
+  .faq {
+    border-bottom: 1px solid color-mix(in srgb, var(--color-filete) 14%, transparent);
+  }
+  .faq:first-of-type {
+    border-top: 1px solid color-mix(in srgb, var(--color-filete) 14%, transparent);
+  }
+  .faq-q {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-block: 1.375rem;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--color-fuerte);
+    transition: color 240ms var(--ease-out-expo);
+  }
+  .faq-q::-webkit-details-marker {
+    display: none;
+  }
+  .faq-q::after {
+    content: "+";
+    flex-shrink: 0;
+    font-size: 1.375rem;
+    line-height: 1;
+    color: var(--color-acento);
+    transition: transform 320ms var(--ease-out-expo);
+  }
+  .faq[open] .faq-q::after {
+    transform: rotate(45deg);
+  }
+  .faq-q:hover {
+    color: var(--color-acento);
+  }
+  .faq-a {
+    padding-bottom: 1.5rem;
+    max-width: 64ch;
+    line-height: 1.65;
+    color: var(--color-texto);
   }
 
   /* ---- Tarjeta ---- */

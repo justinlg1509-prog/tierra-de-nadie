@@ -4,8 +4,14 @@ Sitio one-page para **Restaurante Tierra de Nadie**, parrilla argentina en Almer
 HTML5 + Tailwind CSS v4 (compilado con CLI) + JavaScript vanilla. Sin framework, sin runtime.
 
 Dirección visual: **papel de carnicería**. Fondo kraft, tinta negra, la brasa del logo para las
-acciones y la carta sobre pizarra. Tipografías **Archivo Black** (rótulo) y **Chivo** (texto),
-las dos de Omnibus-Type, fundición de Buenos Aires: el origen del restaurante puesto en la letra.
+acciones y la carta sobre pizarra. Tipografías **Anton** para rótulo y **Chivo** (Omnibus-Type,
+Buenos Aires) para texto.
+
+Anton es condensada: además de dar el registro de chapa esmaltada y cartel de mercado, deja que
+titulares largos en castellano quepan en menos líneas. Si algún día se prefiere que las dos
+tipografías salgan de fundición porteña, la sustituta natural es **Archivo** (la misma familia
+que Chivo) en su eje condensado con grosor 800; se cambia en `--font-display` y en el enlace a
+Google Fonts de las cuatro páginas.
 
 > ⚠️ **No es la web oficial del restaurante.** Es una propuesta comercial no encargada.
 > Las fotos son provisionales, los precios están como `€—` y los textos legales son plantillas.
@@ -97,6 +103,7 @@ Búsqueda rápida: `grep -rn "TODO" index.html js/ legal/ src/`
 | 11 | **Coordenadas exactas** de ambos locales. Las actuales son aproximadas a nivel de calle | JSON-LD `geo` |
 | 12 | **Año de apertura**: uno de los 4 datos de «La casa» debería ser «Desde 20XX» | `index.html` §la-casa |
 | 13 | **Reseñas literales**: ver §4 | `index.html` §resenas |
+| 14 | **Las 5 respuestas de preguntas frecuentes**: están escritas a partir de lo que ya afirmaba la web (horarios, sin gluten, grupos, terraza). Confirmar una por una, sobre todo la de terraza en ambos locales | `index.html` §preguntas + JSON-LD `FAQPage` |
 
 ---
 
@@ -223,6 +230,14 @@ Lo que **no** cubre y hay que mirar a mano antes de entregar:
   barrido en `scroll` que recupera lo que quedó por encima del viewport. No quitarlo.
 - **El `<img>` del lightbox no lleva `src` en el HTML.** Un `src=""` dispara una petición a
   la propia página.
+- **La foto del hero se precarga con `imagesrcset`**, el mismo del `<img>`. Es el LCP: así la
+  petición sale al leer el `<head>` en vez de al construir el `<body>`, y no descarga de más
+  porque el navegador elige la misma candidata. Si se cambia el `srcset` del hero, hay que
+  cambiar el `preload` igual, o se bajarán dos ficheros distintos.
+- **El bloque de preguntas frecuentes va en `<details>` nativos.** Sin JS, y el texto está en
+  el DOM aunque esté plegado: es lo que exige Google para el `FAQPage`, que no admite marcado
+  sobre respuestas que el visitante no puede ver. Si se quita una pregunta del HTML, hay que
+  quitarla también del JSON-LD.
 - **El color va por superficies, no por clases sueltas.** Cada sección declara
   `data-superficie="papel | papel-hondo | tinta | pizarra"` y eso redefine los tokens
   semánticos (`--color-fuerte`, `--color-texto`, `--color-suave`, `--color-acento`,
