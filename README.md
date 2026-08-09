@@ -249,6 +249,30 @@ Lo que **no** cubre y hay que mirar a mano antes de entregar:
       mueve la aguja: hoy apunta a Facebook)
 - [ ] Enlace de la web añadido en la bio de Instagram y en la página de Facebook
 
+### Dónde está desplegado ahora
+
+| | |
+|---|---|
+| Código | https://github.com/justinlg1509-prog/tierra-de-nadie (rama `main`) |
+| Hosting | Vercel, desplegando automáticamente en cada push a `main` |
+
+El sitio se sirve **como estático desde la raíz**: `vercel.json` deja `installCommand` y
+`buildCommand` vacíos, así que Vercel no compila nada, solo publica los ficheros del repo.
+
+> ⚠️ **Consecuencia:** `css/output.css` va versionado y es lo que se publica tal cual.
+> Si tocas `src/input.css`, hay que ejecutar `npm run build` **y commitear el CSS resultante**,
+> o el despliegue saldrá con los estilos viejos.
+
+`vercel.json` también resuelve, para este despliegue de propuesta, varios puntos del checklist
+técnico de arriba: cabeceras `X-Content-Type-Options`, `Referrer-Policy` y `Permissions-Policy`,
+`Cache-Control` de un día para `/img`, y HTTPS y compresión que ya pone Vercel por su cuenta.
+
+Y añade **`X-Robots-Tag: noindex, nofollow` en todas las respuestas**, a propósito: mientras esto
+sea una propuesta no aprobada, no debe indexarse ni competir en Google con el negocio real. Esa
+cabecera manda por encima del `<meta name="robots" content="index, follow">` del HTML, que se ha
+dejado intacto para el dominio definitivo. **Al publicar de verdad hay que quitar ese bloque de
+`vercel.json`**, o la web oficial nacerá invisible para los buscadores.
+
 ---
 
 ## 9. Accesibilidad
