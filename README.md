@@ -253,8 +253,13 @@ Lo que **no** cubre y hay que mirar a mano antes de entregar:
 
 | | |
 |---|---|
+| Web | https://tierra-de-nadie.vercel.app |
 | Código | https://github.com/justinlg1509-prog/tierra-de-nadie (rama `main`) |
 | Hosting | Vercel, desplegando automáticamente en cada push a `main` |
+
+Lo que **no** se publica lo marca `.vercelignore`: `src/`, `tools/`, `.claude/`, este README y
+`PROPUESTA.md`. Como el sitio se sirve desde la raíz, sin esa lista quedarían accesibles por URL.
+Si algún día el HTML pasa a referenciar algo de ahí, hay que sacarlo del `.vercelignore`.
 
 El sitio se sirve **como estático desde la raíz**: `vercel.json` deja `installCommand` y
 `buildCommand` vacíos, así que Vercel no compila nada, solo publica los ficheros del repo.
