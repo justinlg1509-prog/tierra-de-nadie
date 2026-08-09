@@ -337,14 +337,16 @@ async function main() {
       titulo: document.title,
       h1: document.querySelectorAll('h1').length,
       css: !!document.querySelector('link[href="/css/output.css"]'),
-      estiloAplicado: getComputedStyle(document.body).backgroundColor,
+      estiloAplicado: getComputedStyle(document.documentElement).backgroundColor,
       rotos: [...document.querySelectorAll('a[href^="/"]')].map(a => a.getAttribute('href'))
     })`);
     const errores = consola.filter((t) => !/fonts\.(googleapis|gstatic)/.test(t));
     errores.forEach((c) => fallo('[' + p + '] consola → ' + c));
     red.filter((t) => !/fonts\./.test(t)).forEach((r) => fallo('[' + p + '] red → ' + r));
     if (info.h1 !== 1) fallo('[' + p + '] h1 = ' + info.h1);
-    if (info.estiloAplicado !== 'rgb(20, 18, 16)') fallo('[' + p + '] los estilos no se aplican (' + info.estiloAplicado + ')');
+    // kraft-100 (#E9DCC4): el fondo de la superficie "papel". Si sale otra cosa,
+    // o no ha cargado output.css o se ha tocado el token sin actualizar esto.
+    if (info.estiloAplicado !== 'rgb(233, 220, 196)') fallo('[' + p + '] los estilos no se aplican (' + info.estiloAplicado + ')');
     console.log('\n=== ' + p + ' ===\n  ' + info.titulo + ' · h1=' + info.h1 + ' · estilos OK');
   }
 

@@ -1,6 +1,7 @@
 /* ==========================================================================
    Tierra de Nadie — hoja de estilo fuente (Tailwind CSS v4)
-   Compilar con:  npm run build     ->  /css/output.css
+   Direccion: "papel de carniceria". Fondo kraft, tinta negra, brasa del logo
+   y la carta sobre pizarra. Compilar con:  npm run build  ->  /css/output.css
    ========================================================================== */
 
 @import "tailwindcss" source(none);
@@ -14,32 +15,56 @@
    1. Design tokens
    -------------------------------------------------------------------------- */
 @theme {
-  /* Base carbón */
-  --color-carbon-950: #141210;
-  --color-carbon-900: #1c1917;
-  --color-carbon-800: #262220;
-  --color-carbon-700: #332e2a;
+  /* Papel de carnicería: el fondo dominante del sitio */
+  --color-kraft-50: #f6efe0;
+  --color-kraft-100: #e9dcc4;
+  --color-kraft-200: #dccfb2;
+  --color-kraft-300: #c9b795;
 
-  /* Crema hueso */
-  --color-crema-50: #f4ede3;
-  --color-crema-200: #c8bfb2; /* 9.6:1 sobre carbón-900 */
-  --color-crema-400: #a69b8c; /* 6.4:1 sobre carbón-900 */
+  /* Tinta: texto sobre papel y bandas oscuras */
+  --color-tinta-950: #14110d;
+  --color-tinta-900: #1f1b16;
+  --color-tinta-700: #3a332a;
+  --color-tinta-500: #5a5243; /* 5,7:1 sobre kraft-100 y 5,0:1 sobre kraft-200 */
 
-  /* Acentos */
-  --color-brasa-500: #b4472a; /* 3.4:1 -> solo texto grande, bordes y fondos */
+  /* Pizarra: solo la carta */
+  --color-pizarra-900: #232b23;
+  --color-pizarra-800: #2e3a2e;
+
+  /* Tiza: texto sobre pizarra y sobre tinta */
+  --color-tiza-50: #ede7d8;
+  --color-tiza-300: #c3bba6;
+  --color-tiza-500: #9a917d;
+
+  /* Acentos del logo */
+  --color-brasa-600: #96371f; /* 5,4:1 sobre kraft-100 -> texto sobre claro */
+  --color-brasa-500: #b4472a; /* el del logo -> rellenos y bordes */
   --color-brasa-400: #c25a2b;
-  --color-dorado-400: #d9a441; /* 8.4:1 -> apto para texto pequeño */
+  --color-dorado-400: #d9a441; /* el del logo -> solo sobre oscuro */
   --color-oliva-500: #6b7256;
 
-  /* Tipografía */
-  --font-display: "Bodoni Moda", "Times New Roman", ui-serif, Georgia, serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+  /* ---- Capa semántica: cambia de valor según la superficie (ver §2) ----
+     Las utilidades del HTML usan SIEMPRE estos nombres, nunca los de arriba.
+     Así una sección entera se reviste cambiando data-superficie. */
+  --color-fondo: var(--color-kraft-100);
+  --color-alza: var(--color-kraft-50);
+  --color-fuerte: var(--color-tinta-900);
+  --color-texto: var(--color-tinta-700);
+  --color-suave: var(--color-tinta-500);
+  --color-acento: var(--color-brasa-600);
+  --color-filete: var(--color-tinta-900); /* se usa siempre con opacidad */
+
+  /* Tipografía: ambas de fundiciones porteñas.
+     Archivo Black (Omnibus-Type) para rótulo, Chivo (Omnibus-Type) para leer. */
+  --font-display: "Archivo Black", "Arial Black", ui-sans-serif, system-ui,
+    sans-serif;
+  --font-sans: "Chivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif;
 
   /* Escala display fluida */
-  --text-hero: clamp(2.75rem, 9vw, 7.5rem);
-  --text-display: clamp(2.125rem, 5.5vw, 4.25rem);
-  --text-title: clamp(1.625rem, 3.2vw, 2.5rem);
+  --text-hero: clamp(2.5rem, 8.2vw, 6.75rem);
+  --text-display: clamp(1.875rem, 4.8vw, 3.5rem);
+  --text-title: clamp(1.375rem, 2.8vw, 2.125rem);
 
   /* Ritmo y movimiento */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -48,12 +73,72 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. Base
+   2. Superficies
+   Cada sección declara data-superficie y hereda su juego de colores. Las
+   utilidades (text-fuerte, border-filete/20, bg-alza…) no cambian nunca.
+   -------------------------------------------------------------------------- */
+@layer base {
+  [data-superficie="papel"] {
+    --color-fondo: var(--color-kraft-100);
+    --color-alza: var(--color-kraft-50);
+    --color-fuerte: var(--color-tinta-900);
+    --color-texto: var(--color-tinta-700);
+    --color-suave: var(--color-tinta-500);
+    --color-acento: var(--color-brasa-600);
+    --color-filete: var(--color-tinta-900);
+  }
+
+  [data-superficie="papel-hondo"] {
+    --color-fondo: var(--color-kraft-200);
+    --color-alza: var(--color-kraft-100);
+    --color-fuerte: var(--color-tinta-900);
+    --color-texto: var(--color-tinta-700);
+    --color-suave: var(--color-tinta-500);
+    --color-acento: var(--color-brasa-600);
+    --color-filete: var(--color-tinta-900);
+  }
+
+  [data-superficie="tinta"] {
+    --color-fondo: var(--color-tinta-900);
+    --color-alza: var(--color-tinta-950);
+    --color-fuerte: var(--color-tiza-50);
+    --color-texto: var(--color-tiza-300);
+    --color-suave: var(--color-tiza-500);
+    --color-acento: var(--color-dorado-400);
+    --color-filete: var(--color-tiza-50);
+  }
+
+  [data-superficie="pizarra"] {
+    --color-fondo: var(--color-pizarra-900);
+    --color-alza: var(--color-pizarra-800);
+    --color-fuerte: var(--color-tiza-50);
+    --color-texto: var(--color-tiza-300);
+    --color-suave: var(--color-tiza-500);
+    --color-acento: var(--color-dorado-400);
+    --color-filete: var(--color-tiza-50);
+  }
+
+  /* Toda superficie pinta su propio fondo y su color de texto por defecto */
+  [data-superficie] {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+  }
+
+  /* …salvo las que van sobre una foto a sangre (hero, eventos) o son
+     transparentes hasta que se hace scroll (la cabecera): heredan los colores
+     de texto de la superficie pero dejan ver lo que tienen detrás. */
+  [data-superficie][data-sin-fondo] {
+    background-color: transparent;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Base
    -------------------------------------------------------------------------- */
 @layer base {
   :root {
-    /* Ruido generado con feTurbulence: ~350 bytes, sin petición de red */
-    --grain-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
+    /* Fibra del papel: ruido feTurbulence, ~350 bytes, sin petición de red */
+    --grain-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   }
 
   html {
@@ -61,11 +146,15 @@
     /* Compensa la barra fija al saltar a un ancla */
     scroll-padding-top: 5rem;
     -webkit-text-size-adjust: 100%;
+    background-color: var(--color-kraft-100);
   }
 
+  /* El fondo del sitio lo pinta SOLO <html>. Si <body> pintara también, su caja
+     taparía las capas en -z-10 (la foto y el degradado del hero, que van detrás
+     del contenido de la sección). Por eso el body no lleva data-superficie:
+     hereda los valores por defecto del tema, que ya son los de "papel". */
   body {
-    background-color: var(--color-carbon-950);
-    color: var(--color-crema-200);
+    color: var(--color-tinta-700);
     font-family: var(--font-sans);
     font-synthesis-weight: none;
     -webkit-font-smoothing: antialiased;
@@ -78,10 +167,11 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    color: var(--color-crema-50);
-    font-weight: 600;
-    line-height: 1.02;
-    letter-spacing: -0.015em;
+    color: var(--color-fuerte);
+    font-weight: 400; /* Archivo Black solo tiene un grosor: ya es negra */
+    line-height: 0.94;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
     text-wrap: balance;
   }
 
@@ -91,35 +181,39 @@
 
   /* Foco visible y consistente en todo el sitio */
   :focus-visible {
-    outline: 2px solid var(--color-dorado-400);
+    outline: 2px solid var(--color-brasa-500);
     outline-offset: 3px;
     border-radius: 2px;
   }
 
-  /* Selección */
-  ::selection {
-    background-color: var(--color-brasa-500);
-    color: var(--color-crema-50);
+  /* Sobre superficies oscuras la brasa no destaca: se usa el dorado */
+  [data-superficie="tinta"] :focus-visible,
+  [data-superficie="pizarra"] :focus-visible {
+    outline-color: var(--color-dorado-400);
   }
 
-  /* Scrollbar discreta (progressive enhancement) */
+  ::selection {
+    background-color: var(--color-brasa-500);
+    color: var(--color-kraft-50);
+  }
+
   @supports (scrollbar-color: auto) {
     html {
-      scrollbar-color: var(--color-carbon-700) var(--color-carbon-950);
+      scrollbar-color: var(--color-kraft-300) var(--color-kraft-100);
     }
   }
 
-  /* Placeholder de las imágenes mientras cargan */
+  /* Reserva del hueco de la imagen mientras carga */
   img {
-    background-color: var(--color-carbon-800);
+    background-color: var(--color-kraft-200);
   }
 }
 
 /* --------------------------------------------------------------------------
-   3. Utilidades propias
+   4. Utilidades propias
    -------------------------------------------------------------------------- */
 
-/* Grano de película: capa fija, no intercepta el puntero, coste ~0 */
+/* Fibra de papel: capa fija, no intercepta el puntero, coste ~0 */
 @utility grain {
   position: relative;
 }
@@ -128,40 +222,50 @@
   inset: 0;
   z-index: 100;
   pointer-events: none;
-  opacity: 0.4;
-  mix-blend-mode: overlay;
+  opacity: 0.28;
+  mix-blend-mode: multiply;
   background-image: var(--grain-url);
   background-size: 180px 180px;
 }
 
 /* Filete fino de sección */
 @utility rule {
-  border-top: 1px solid color-mix(in srgb, var(--color-crema-50) 12%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--color-filete) 16%, transparent);
 }
 
 /* Etiqueta superior de sección */
 @utility eyebrow {
   font-family: var(--font-sans);
   font-size: 0.6875rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-dorado-400);
+  color: var(--color-acento);
 }
 
-/* Degradado de lectura sobre foto */
+/* Degradado de lectura sobre foto (siempre oscuro: va bajo texto en tiza) */
 @utility scrim {
   background-image: linear-gradient(
     to top,
-    rgb(20 18 16 / 0.94) 0%,
-    rgb(20 18 16 / 0.72) 32%,
-    rgb(20 18 16 / 0.28) 62%,
-    rgb(20 18 16 / 0.45) 100%
+    rgb(20 17 13 / 0.94) 0%,
+    rgb(20 17 13 / 0.74) 34%,
+    rgb(20 17 13 / 0.34) 66%,
+    rgb(20 17 13 / 0.5) 100%
   );
 }
 
+/* Cinta de rótulo: el titular sobre un bloque de brasa, como una chapa */
+@utility chapa {
+  display: inline-block;
+  background-color: var(--color-brasa-500);
+  color: var(--color-kraft-50);
+  padding: 0.08em 0.32em 0.16em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 /* --------------------------------------------------------------------------
-   4. Componentes
+   5. Componentes
    -------------------------------------------------------------------------- */
 @layer components {
   /* ---- Botones ---- */
@@ -172,7 +276,7 @@
     gap: 0.5rem;
     padding: 0.9375rem 1.75rem;
     font-size: 0.8125rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     line-height: 1;
@@ -188,25 +292,26 @@
 
   .btn-primary {
     background-color: var(--color-brasa-500);
-    color: var(--color-crema-50); /* 4.7:1 */
+    color: var(--color-kraft-50); /* 4,5:1 */
   }
   .btn-primary:hover {
-    background-color: var(--color-brasa-400);
+    background-color: var(--color-brasa-600);
   }
 
+  /* Contorno: hereda el color de la superficie, así sirve en papel y en tinta */
   .btn-ghost {
-    border-color: color-mix(in srgb, var(--color-crema-50) 34%, transparent);
-    color: var(--color-crema-50);
+    border-color: color-mix(in srgb, var(--color-filete) 40%, transparent);
+    color: var(--color-fuerte);
   }
   .btn-ghost:hover {
-    background-color: var(--color-crema-50);
-    color: var(--color-carbon-950);
-    border-color: var(--color-crema-50);
+    background-color: var(--color-fuerte);
+    color: var(--color-fondo);
+    border-color: var(--color-fuerte);
   }
 
   .btn-gold {
     background-color: var(--color-dorado-400);
-    color: var(--color-carbon-950); /* 8.4:1 */
+    color: var(--color-tinta-950); /* 8,4:1 */
   }
   .btn-gold:hover {
     background-color: #e6b556;
@@ -228,41 +333,49 @@
   /* ---- Campos de formulario ---- */
   .field {
     width: 100%;
-    background-color: var(--color-carbon-900);
-    border: 1px solid color-mix(in srgb, var(--color-crema-50) 16%, transparent);
-    color: var(--color-crema-50);
+    background-color: var(--color-alza);
+    border: 1px solid color-mix(in srgb, var(--color-filete) 28%, transparent);
+    color: var(--color-fuerte);
     padding: 0.8125rem 1rem;
     font-size: 0.9375rem;
     transition: border-color 200ms var(--ease-out-expo);
   }
   .field::placeholder {
-    color: var(--color-crema-400);
+    color: var(--color-suave);
   }
   .field:hover {
-    border-color: color-mix(in srgb, var(--color-crema-50) 30%, transparent);
+    border-color: color-mix(in srgb, var(--color-filete) 48%, transparent);
   }
   .field[aria-invalid="true"] {
-    border-color: var(--color-brasa-400);
+    border-color: var(--color-brasa-500);
   }
-  /* El calendario nativo en oscuro */
   .field::-webkit-calendar-picker-indicator {
-    filter: invert(1) sepia(0.3);
     cursor: pointer;
+  }
+  /* Sobre superficie oscura el calendario nativo necesita invertirse */
+  [data-superficie="tinta"] .field::-webkit-calendar-picker-indicator,
+  [data-superficie="pizarra"] .field::-webkit-calendar-picker-indicator {
+    filter: invert(1) sepia(0.3);
   }
   .field-label {
     display: block;
     font-size: 0.6875rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--color-crema-400);
+    color: var(--color-suave);
     margin-bottom: 0.5rem;
   }
   .field-error {
     display: none;
     font-size: 0.8125rem;
-    color: #e8845f; /* 5.3:1 sobre carbón */
+    font-weight: 500;
+    color: var(--color-brasa-600); /* 5,4:1 sobre kraft */
     margin-top: 0.375rem;
+  }
+  [data-superficie="tinta"] .field-error,
+  [data-superficie="pizarra"] .field-error {
+    color: #e8845f; /* 5,3:1 sobre tinta */
   }
   .field-error.is-visible {
     display: block;
@@ -274,27 +387,33 @@
     align-items: center;
     gap: 0.25rem;
     flex-shrink: 0;
-    font-family: var(--font-sans); /* no heredar la display del título del plato */
+    font-family: var(--font-sans);
     padding: 0.1875rem 0.5rem;
     font-size: 0.625rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #b9c49b;
-    border: 1px solid color-mix(in srgb, var(--color-oliva-500) 70%, transparent);
-    background-color: color-mix(in srgb, var(--color-oliva-500) 18%, transparent);
+    color: #4a5238; /* 5,9:1 sobre kraft */
+    border: 1px solid color-mix(in srgb, var(--color-oliva-500) 60%, transparent);
+    background-color: color-mix(in srgb, var(--color-oliva-500) 16%, transparent);
     white-space: nowrap;
   }
+  [data-superficie="tinta"] .badge-sg,
+  [data-superficie="pizarra"] .badge-sg {
+    color: #b9c49b; /* 8,0:1 sobre pizarra */
+    border-color: color-mix(in srgb, #b9c49b 45%, transparent);
+    background-color: color-mix(in srgb, #b9c49b 12%, transparent);
+  }
 
-  /* ---- Pestañas de la carta ---- */
+  /* ---- Pestañas de la carta (viven sobre pizarra) ---- */
   .menu-tab {
     position: relative;
     padding: 0.75rem 0.25rem;
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--color-crema-400);
+    color: var(--color-suave);
     white-space: nowrap;
     background: none;
     border: 0;
@@ -308,16 +427,16 @@
     right: 0;
     bottom: -1px;
     height: 2px;
-    background-color: var(--color-brasa-500);
+    background-color: var(--color-dorado-400);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 320ms var(--ease-out-expo);
   }
   .menu-tab:hover {
-    color: var(--color-crema-50);
+    color: var(--color-fuerte);
   }
   .menu-tab[aria-selected="true"] {
-    color: var(--color-crema-50);
+    color: var(--color-fuerte);
   }
   .menu-tab[aria-selected="true"]::after {
     transform: scaleX(1);
@@ -330,7 +449,7 @@
     gap: 0.75rem;
     padding-block: 1rem;
     border-bottom: 1px solid
-      color-mix(in srgb, var(--color-crema-50) 9%, transparent);
+      color-mix(in srgb, var(--color-filete) 14%, transparent);
   }
   .dish-dots {
     flex: 1 1 auto;
@@ -339,7 +458,7 @@
     margin-bottom: 0.28em;
     background-image: linear-gradient(
       to right,
-      color-mix(in srgb, var(--color-crema-50) 26%, transparent) 33%,
+      color-mix(in srgb, var(--color-filete) 34%, transparent) 33%,
       transparent 0%
     );
     background-position: bottom;
@@ -348,25 +467,26 @@
   }
   .dish-price {
     flex-shrink: 0;
-    font-family: var(--font-display);
-    font-size: 1.0625rem;
-    color: var(--color-dorado-400);
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-acento);
     font-variant-numeric: tabular-nums;
   }
 
   /* ---- Tarjeta ---- */
   .card {
-    background-color: var(--color-carbon-900);
-    border: 1px solid color-mix(in srgb, var(--color-crema-50) 10%, transparent);
+    background-color: var(--color-alza);
+    border: 1px solid color-mix(in srgb, var(--color-filete) 14%, transparent);
     transition: border-color 320ms var(--ease-out-expo);
   }
   .card:hover {
-    border-color: color-mix(in srgb, var(--color-crema-50) 22%, transparent);
+    border-color: color-mix(in srgb, var(--color-filete) 32%, transparent);
   }
 }
 
 /* --------------------------------------------------------------------------
-   5. Animaciones (scroll reveal + hero)
+   6. Animaciones (scroll reveal + hero)
    -------------------------------------------------------------------------- */
 @layer utilities {
   [data-reveal] {

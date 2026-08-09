@@ -3,6 +3,10 @@
 Sitio one-page para **Restaurante Tierra de Nadie**, parrilla argentina en Almería.
 HTML5 + Tailwind CSS v4 (compilado con CLI) + JavaScript vanilla. Sin framework, sin runtime.
 
+Dirección visual: **papel de carnicería**. Fondo kraft, tinta negra, la brasa del logo para las
+acciones y la carta sobre pizarra. Tipografías **Archivo Black** (rótulo) y **Chivo** (texto),
+las dos de Omnibus-Type, fundición de Buenos Aires: el origen del restaurante puesto en la letra.
+
 > ⚠️ **No es la web oficial del restaurante.** Es una propuesta comercial no encargada.
 > Las fotos son provisionales, los precios están como `€—` y los textos legales son plantillas.
 > No publicar en un dominio público con el nombre del negocio sin la autorización del titular.
@@ -36,7 +40,8 @@ desde la raíz. Abrir `index.html` con doble clic (`file://`) **no** funciona.
 |---|---|
 | `npm run build` | Compila y minifica el CSS a `css/output.css` |
 | `npm run dev` | Igual, en modo *watch* |
-| `npm run img` | Regenera todos los placeholders de `/img` |
+| `python tools/fetch-unsplash.py` | Regenera `/img` descargando las fotos provisionales de Unsplash |
+| `npm run img` | Regenera `/img` con los placeholders sintéticos antiguos (en desuso) |
 | `node tools/dev-server.js [puerto]` | Servidor estático (por defecto 5173) |
 | `node tools/verify.js` | Batería de verificación automática (ver §6) |
 
@@ -52,7 +57,8 @@ desde la raíz. Abrir `index.html` con doble clic (`file://`) **no** funciona.
 ├── img/                       placeholders WebP + og-tierra-de-nadie.jpg
 ├── legal/                     aviso-legal · privacidad · cookies
 ├── tools/
-│   ├── generate-placeholders.py   genera /img con Pillow
+│   ├── fetch-unsplash.py          genera /img con fotos de Unsplash
+│   ├── generate-placeholders.py   generador sintético anterior (en desuso)
 │   ├── dev-server.js              servidor estático sin dependencias
 │   └── verify.js                  verificación headless vía CDP
 ├── favicon.svg · site.webmanifest · robots.txt · sitemap.xml
@@ -112,12 +118,19 @@ reseñas en el propio sitio, entonces sí puede marcarse.
 
 ## 5. Fotografía que hay que pedir al cliente
 
-Todas las imágenes de `/img` son **placeholders generados**. Reservan la proporción, el nombre
-de archivo y el peso aproximado de la foto definitiva: sustituir es copiar encima, sin tocar el HTML.
+Todas las imágenes de `/img` son **fotos de banco, provisionales**, bajadas de Unsplash con
+`tools/fetch-unsplash.py` (Unsplash License: uso comercial permitido, sin atribución obligatoria;
+los créditos están en `CREDITOS-FOTOS.md`). Reservan la proporción, el nombre de archivo y el peso
+aproximado de la foto definitiva: sustituir es copiar encima, sin tocar el HTML.
+
+> ⚠️ **Dos no coinciden con lo que promete su pie y hay que cambiarlas las primeras:**
+> `galeria-03-empanadas` no muestra empanadas (son masas fritas de otro tipo) y
+> `galeria-09-croquetas` no muestra croquetas. En Unsplash no hay foto buena de ninguna de
+> las dos cosas, y son justamente dos señas de identidad de la casa.
 
 Formato de entrega: **WebP, calidad 72–80**. Entregar cada foto en los anchos indicados
-(el HTML ya trae el `srcset` montado). Si llegan en JPG, `tools/generate-placeholders.py`
-sirve de referencia para las conversiones.
+(el HTML ya trae el `srcset` montado). Si llegan en JPG, `tools/fetch-unsplash.py`
+sirve de referencia para las conversiones y los recortes.
 
 ### Prioridad alta — se ven en la primera pantalla
 
@@ -210,6 +223,21 @@ Lo que **no** cubre y hay que mirar a mano antes de entregar:
   barrido en `scroll` que recupera lo que quedó por encima del viewport. No quitarlo.
 - **El `<img>` del lightbox no lleva `src` en el HTML.** Un `src=""` dispara una petición a
   la propia página.
+- **El color va por superficies, no por clases sueltas.** Cada sección declara
+  `data-superficie="papel | papel-hondo | tinta | pizarra"` y eso redefine los tokens
+  semánticos (`--color-fuerte`, `--color-texto`, `--color-suave`, `--color-acento`,
+  `--color-filete`, `--color-fondo`, `--color-alza`). El HTML usa **siempre** esos nombres
+  (`text-fuerte`, `border-filete/20`…), nunca un color concreto. Cambiar una sección de clara
+  a oscura es cambiar un atributo. Si se escribe `text-tiza-50` a pelo en el HTML, se rompe
+  esa propiedad.
+- **El fondo del sitio lo pinta solo `<html>`, nunca `<body>`.** Si los dos pintan, la caja del
+  `body` tapa las capas en `-z-10`, que es donde viven la foto y el degradado del hero: el hero
+  se queda en blanco y su texto, en tiza sobre kraft, desaparece. Por eso el `body` no lleva
+  `data-superficie`: hereda del tema los valores de «papel», que son los que le tocan.
+- **Las secciones con foto a sangre llevan `data-sin-fondo`** (hero y eventos), y la cabecera
+  también mientras está arriba del todo. Heredan los colores de texto de su superficie pero
+  dejan ver lo que tienen detrás. `js/main.js` conmuta la cabecera entre `tinta` y `papel`
+  al hacer scroll.
 
 ---
 
@@ -284,15 +312,19 @@ dejado intacto para el dominio definitivo. **Al publicar de verdad hay que quita
 
 Objetivo WCAG 2.1 AA. Lo que ya está resuelto:
 
-- Contrastes medidos con `node tools/contrast.js` sobre el fondo carbón `#141210`:
-  crema `#F4EDE3` **16,08:1** · crema apagado `#C8BFB2` **10,28:1** · crema tenue `#A69B8C`
-  **6,84:1** · dorado `#D9A441` **8,31:1** · crema sobre botón brasa **4,66:1** · carbón sobre
-  botón dorado **8,31:1** · mensaje de error `#E8845F` **6,58:1** · badge sin gluten `#B9C49B`
-  **10,17:1**. El brasa `#B4472A` da **3,45:1**, así que **solo** se usa en texto grande,
-  bordes y fondos, nunca en texto pequeño.
+- Contrastes medidos con `node tools/contrast.js`, **las 23 combinaciones de las cuatro
+  superficies**. Las más ajustadas: texto suave `#5A5243` sobre papel hondo **5,00:1**,
+  kraft sobre botón brasa **4,73:1**, acento `#96371F` sobre papel hondo **4,75:1** y
+  tiza suave `#9A917D` sobre pizarra **4,66:1**. El resto va de 5,4:1 a 13,9:1.
+  Dos apuntes de por qué la paleta es la que es: el brasa del logo `#B4472A` solo da 4,0:1
+  sobre kraft, así que en texto se usa una versión más oscura (`#96371F`, 5,4:1) y el `#B4472A`
+  queda para rellenos y bordes; y el dorado `#D9A441` es ilegible sobre claro (2:1), así que
+  **solo** aparece sobre tinta y pizarra.
   Si se toca cualquier color de `src/input.css`, volver a pasar `node tools/contrast.js`.
 - HTML semántico con `header` / `nav` / `main` / `footer`, un solo `h1` y jerarquía sin saltos.
-- Foco visible en todo el sitio (`:focus-visible` con anillo dorado) y enlace «Saltar al contenido».
+- Foco visible en todo el sitio y enlace «Saltar al contenido». El anillo de foco es brasa
+  sobre las superficies claras y dorado sobre las oscuras, porque ninguno de los dos se ve
+  bien en las dos.
 - Pestañas de la carta con el patrón WAI-ARIA completo: flechas, `Home`/`End` y `tabindex` móvil.
 - Menú móvil con trampa de foco, `Escape`, `aria-expanded` y devolución del foco al cerrar.
 - Lightbox sobre `<dialog>` nativo: foco y `Escape` los gestiona el navegador; flechas para navegar.
