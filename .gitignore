@@ -4,5 +4,9 @@ package-lock.json
 .DS_Store
 Thumbs.db
 *.log
-.vercel/
+
+# Vercel: .vercel guarda el enlace al proyecto y .env.local el OIDC token
+.vercel
+.env*
+
 .claude/settings.local.json

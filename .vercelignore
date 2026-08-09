@@ -1,0 +1,9 @@
+# El sitio se publica tal cual desde la raiz (sin build en Vercel), asi que
+# aqui va todo lo que NO debe acabar servido en la URL publica.
+# Comprobado: index.html y /legal solo piden /css, /js, /img, /favicon.svg y /site.webmanifest.
+
+.claude
+src
+tools
+README.md
+PROPUESTA.md
