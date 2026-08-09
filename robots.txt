@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /legal/
+
+# TODO: sustituir por el dominio definitivo antes de publicar
+Sitemap: https://tierradenadiealmeria.es/sitemap.xml

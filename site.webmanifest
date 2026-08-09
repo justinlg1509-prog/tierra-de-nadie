@@ -1,0 +1,19 @@
+{
+  "name": "Restaurante Tierra de Nadie",
+  "short_name": "Tierra de Nadie",
+  "description": "Parrilla argentina en Almería: carne madurada, churrasco, empanadas y tapas. Dos locales, uno frente al mar.",
+  "lang": "es-ES",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#141210",
+  "theme_color": "#141210",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

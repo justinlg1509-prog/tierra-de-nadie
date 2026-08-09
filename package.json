@@ -1,0 +1,17 @@
+{
+  "name": "tierra-de-nadie",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web de propuesta comercial (spec work) para Restaurante Tierra de Nadie - parrilla argentina en Almeria",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./css/output.css --watch",
+    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./css/output.css --minify",
+    "serve": "npx serve . -l 5173",
+    "start": "npm run build && npm run serve",
+    "img": "python ./tools/generate-placeholders.py"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
+  }
+}

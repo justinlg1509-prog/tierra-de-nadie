@@ -1,0 +1,428 @@
+/* ==========================================================================
+   Tierra de Nadie — hoja de estilo fuente (Tailwind CSS v4)
+   Compilar con:  npm run build     ->  /css/output.css
+   ========================================================================== */
+
+@import "tailwindcss" source(none);
+
+/* Fuentes a escanear (control explícito: evita leer README, node_modules, etc.) */
+@source "../index.html";
+@source "../legal";
+@source "../js";
+
+/* --------------------------------------------------------------------------
+   1. Design tokens
+   -------------------------------------------------------------------------- */
+@theme {
+  /* Base carbón */
+  --color-carbon-950: #141210;
+  --color-carbon-900: #1c1917;
+  --color-carbon-800: #262220;
+  --color-carbon-700: #332e2a;
+
+  /* Crema hueso */
+  --color-crema-50: #f4ede3;
+  --color-crema-200: #c8bfb2; /* 9.6:1 sobre carbón-900 */
+  --color-crema-400: #a69b8c; /* 6.4:1 sobre carbón-900 */
+
+  /* Acentos */
+  --color-brasa-500: #b4472a; /* 3.4:1 -> solo texto grande, bordes y fondos */
+  --color-brasa-400: #c25a2b;
+  --color-dorado-400: #d9a441; /* 8.4:1 -> apto para texto pequeño */
+  --color-oliva-500: #6b7256;
+
+  /* Tipografía */
+  --font-display: "Bodoni Moda", "Times New Roman", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Escala display fluida */
+  --text-hero: clamp(2.75rem, 9vw, 7.5rem);
+  --text-display: clamp(2.125rem, 5.5vw, 4.25rem);
+  --text-title: clamp(1.625rem, 3.2vw, 2.5rem);
+
+  /* Ritmo y movimiento */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --default-transition-duration: 240ms;
+  --default-transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Base
+   -------------------------------------------------------------------------- */
+@layer base {
+  :root {
+    /* Ruido generado con feTurbulence: ~350 bytes, sin petición de red */
+    --grain-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Compensa la barra fija al saltar a un ancla */
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-carbon-950);
+    color: var(--color-crema-200);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: var(--color-crema-50);
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Foco visible y consistente en todo el sitio */
+  :focus-visible {
+    outline: 2px solid var(--color-dorado-400);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Selección */
+  ::selection {
+    background-color: var(--color-brasa-500);
+    color: var(--color-crema-50);
+  }
+
+  /* Scrollbar discreta (progressive enhancement) */
+  @supports (scrollbar-color: auto) {
+    html {
+      scrollbar-color: var(--color-carbon-700) var(--color-carbon-950);
+    }
+  }
+
+  /* Placeholder de las imágenes mientras cargan */
+  img {
+    background-color: var(--color-carbon-800);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Utilidades propias
+   -------------------------------------------------------------------------- */
+
+/* Grano de película: capa fija, no intercepta el puntero, coste ~0 */
+@utility grain {
+  position: relative;
+}
+@utility grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  background-image: var(--grain-url);
+  background-size: 180px 180px;
+}
+
+/* Filete fino de sección */
+@utility rule {
+  border-top: 1px solid color-mix(in srgb, var(--color-crema-50) 12%, transparent);
+}
+
+/* Etiqueta superior de sección */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-dorado-400);
+}
+
+/* Degradado de lectura sobre foto */
+@utility scrim {
+  background-image: linear-gradient(
+    to top,
+    rgb(20 18 16 / 0.94) 0%,
+    rgb(20 18 16 / 0.72) 32%,
+    rgb(20 18 16 / 0.28) 62%,
+    rgb(20 18 16 / 0.45) 100%
+  );
+}
+
+/* --------------------------------------------------------------------------
+   4. Componentes
+   -------------------------------------------------------------------------- */
+@layer components {
+  /* ---- Botones ---- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.9375rem 1.75rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    line-height: 1;
+    border: 1px solid transparent;
+    transition: background-color 240ms var(--ease-out-expo),
+      color 240ms var(--ease-out-expo), border-color 240ms var(--ease-out-expo),
+      transform 240ms var(--ease-out-expo);
+    cursor: pointer;
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+
+  .btn-primary {
+    background-color: var(--color-brasa-500);
+    color: var(--color-crema-50); /* 4.7:1 */
+  }
+  .btn-primary:hover {
+    background-color: var(--color-brasa-400);
+  }
+
+  .btn-ghost {
+    border-color: color-mix(in srgb, var(--color-crema-50) 34%, transparent);
+    color: var(--color-crema-50);
+  }
+  .btn-ghost:hover {
+    background-color: var(--color-crema-50);
+    color: var(--color-carbon-950);
+    border-color: var(--color-crema-50);
+  }
+
+  .btn-gold {
+    background-color: var(--color-dorado-400);
+    color: var(--color-carbon-950); /* 8.4:1 */
+  }
+  .btn-gold:hover {
+    background-color: #e6b556;
+  }
+
+  /* ---- Enlace subrayado animado ---- */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;
+    transition: background-size 320ms var(--ease-out-expo);
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  /* ---- Campos de formulario ---- */
+  .field {
+    width: 100%;
+    background-color: var(--color-carbon-900);
+    border: 1px solid color-mix(in srgb, var(--color-crema-50) 16%, transparent);
+    color: var(--color-crema-50);
+    padding: 0.8125rem 1rem;
+    font-size: 0.9375rem;
+    transition: border-color 200ms var(--ease-out-expo);
+  }
+  .field::placeholder {
+    color: var(--color-crema-400);
+  }
+  .field:hover {
+    border-color: color-mix(in srgb, var(--color-crema-50) 30%, transparent);
+  }
+  .field[aria-invalid="true"] {
+    border-color: var(--color-brasa-400);
+  }
+  /* El calendario nativo en oscuro */
+  .field::-webkit-calendar-picker-indicator {
+    filter: invert(1) sepia(0.3);
+    cursor: pointer;
+  }
+  .field-label {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-crema-400);
+    margin-bottom: 0.5rem;
+  }
+  .field-error {
+    display: none;
+    font-size: 0.8125rem;
+    color: #e8845f; /* 5.3:1 sobre carbón */
+    margin-top: 0.375rem;
+  }
+  .field-error.is-visible {
+    display: block;
+  }
+
+  /* ---- Badge sin gluten ---- */
+  .badge-sg {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-shrink: 0;
+    font-family: var(--font-sans); /* no heredar la display del título del plato */
+    padding: 0.1875rem 0.5rem;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #b9c49b;
+    border: 1px solid color-mix(in srgb, var(--color-oliva-500) 70%, transparent);
+    background-color: color-mix(in srgb, var(--color-oliva-500) 18%, transparent);
+    white-space: nowrap;
+  }
+
+  /* ---- Pestañas de la carta ---- */
+  .menu-tab {
+    position: relative;
+    padding: 0.75rem 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-crema-400);
+    white-space: nowrap;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    transition: color 240ms var(--ease-out-expo);
+  }
+  .menu-tab::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background-color: var(--color-brasa-500);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 320ms var(--ease-out-expo);
+  }
+  .menu-tab:hover {
+    color: var(--color-crema-50);
+  }
+  .menu-tab[aria-selected="true"] {
+    color: var(--color-crema-50);
+  }
+  .menu-tab[aria-selected="true"]::after {
+    transform: scaleX(1);
+  }
+
+  /* ---- Fila de plato con línea de puntos ---- */
+  .dish {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding-block: 1rem;
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--color-crema-50) 9%, transparent);
+  }
+  .dish-dots {
+    flex: 1 1 auto;
+    height: 1px;
+    min-width: 1.5rem;
+    margin-bottom: 0.28em;
+    background-image: linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-crema-50) 26%, transparent) 33%,
+      transparent 0%
+    );
+    background-position: bottom;
+    background-size: 5px 1px;
+    background-repeat: repeat-x;
+  }
+  .dish-price {
+    flex-shrink: 0;
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    color: var(--color-dorado-400);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---- Tarjeta ---- */
+  .card {
+    background-color: var(--color-carbon-900);
+    border: 1px solid color-mix(in srgb, var(--color-crema-50) 10%, transparent);
+    transition: border-color 320ms var(--ease-out-expo);
+  }
+  .card:hover {
+    border-color: color-mix(in srgb, var(--color-crema-50) 22%, transparent);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Animaciones (scroll reveal + hero)
+   -------------------------------------------------------------------------- */
+@layer utilities {
+  [data-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+    transition: opacity 900ms var(--ease-out-expo),
+      transform 900ms var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    will-change: auto;
+  }
+
+  /* Cortina que descubre una imagen */
+  [data-reveal="mask"] {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 1100ms var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  [data-reveal="mask"].is-visible {
+    clip-path: inset(0 0 0 0);
+  }
+
+  /* Sin JS: nada queda invisible */
+  .no-js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+  }
+}
+
+/* Respeto total a prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal],
+  [data-reveal="mask"] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+  .grain-overlay {
+    display: none;
+  }
+}

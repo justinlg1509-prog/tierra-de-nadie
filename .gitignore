@@ -1,0 +1,8 @@
+node_modules/
+tools/capturas/
+package-lock.json
+.DS_Store
+Thumbs.db
+*.log
+.vercel/
+.claude/settings.local.json
