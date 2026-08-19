@@ -11,11 +11,9 @@
 <meta name="keywords" content="restaurante argentino Almería, parrilla Almería, carne madurada Almería, asador argentino Almería, restaurante Aguadulce playa">
 <meta name="author" content="Restaurante Tierra de Nadie">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="theme-color" content="#f5f7f7">
+<meta name="theme-color" content="#141210">
 <meta name="geo.region" content="ES-AL">
 <meta name="geo.placename" content="Almería">
-<meta name="geo.position" content="36.83985;-2.44025">
-<meta name="ICBM" content="36.83985, -2.44025">
 <!-- TODO: sustituir por el dominio definitivo antes de publicar -->
 <link rel="canonical" href="https://tierradenadiealmeria.es/">
 
@@ -27,7 +25,6 @@
 <meta property="og:description" content="Carne madurada, brasa lenta y manos argentinas. Dos casas en Almería: una en la ciudad, otra frente al mar.">
 <meta property="og:url" content="https://tierradenadiealmeria.es/">
 <meta property="og:image" content="https://tierradenadiealmeria.es/img/og-tierra-de-nadie.jpg">
-<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Parrilla argentina Tierra de Nadie, Almería">
@@ -35,7 +32,6 @@
 <meta name="twitter:title" content="Tierra de Nadie · Parrilla argentina en Almería">
 <meta name="twitter:description" content="Carne madurada, brasa lenta y manos argentinas. Almería y Aguadulce.">
 <meta name="twitter:image" content="https://tierradenadiealmeria.es/img/og-tierra-de-nadie.jpg">
-<meta name="twitter:image:alt" content="Parrilla argentina Tierra de Nadie, Almería">
 
 <!-- ===================== Iconos ===================== -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -47,21 +43,14 @@
      font-display=swap + pila de respaldo con métricas parecidas. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Chivo:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Chivo:wght@400;500;600;700&display=swap" media="print" onload="this.media='all';this.onload=null;">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600;6..96,700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600;6..96,700&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all';this.onload=null;">
 <noscript>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Chivo:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600;6..96,700&family=Inter:wght@400;500;600;700&display=swap">
 </noscript>
 
 <!-- ===================== Estilos ===================== -->
 <link rel="stylesheet" href="/css/output.css">
-
-<!-- La foto del hero es el LCP. Precargarla con el mismo srcset que el <img>
-     adelanta la petición al descubrimiento del HTML, sin descargar de más:
-     el navegador elige la misma candidata que elegiría después. -->
-<link rel="preload" as="image" href="/img/hero-parrilla-1600.webp"
-      imagesrcset="/img/hero-parrilla-640.webp 640w, /img/hero-parrilla-1000.webp 1000w, /img/hero-parrilla-1600.webp 1600w, /img/hero-parrilla-2400.webp 2400w"
-      imagesizes="100vw" fetchpriority="high">
 
 <!-- ===================== Datos estructurados =====================
      Restaurant + department (segunda sede). Sin aggregateRating: Google no
@@ -91,7 +80,7 @@
       "image": [
         "https://tierradenadiealmeria.es/img/og-tierra-de-nadie.jpg",
         "https://tierradenadiealmeria.es/img/hero-parrilla-1600.webp",
-        "https://tierradenadiealmeria.es/img/galeria-02-parrillada-1200.webp"
+        "https://tierradenadiealmeria.es/img/galeria-03-empanadas-1200.webp"
       ],
       "hasMenu": "https://tierradenadiealmeria.es/#carta",
       "acceptsReservations": "https://tierradenadiealmeria.es/#reserva",
@@ -161,54 +150,6 @@
           ]
         }
       ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://tierradenadiealmeria.es/#preguntas",
-      "inLanguage": "es-ES",
-      "isPartOf": { "@id": "https://tierradenadiealmeria.es/#website" },
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "¿Dónde está Tierra de Nadie y qué horario tiene?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Hay dos locales: C. Líbano 15, en Almería, y Plaza Sudáfrica 3, en Aguadulce (Roquetas de Mar), frente a la playa. Los dos abren para comidas de 13:00 a 16:00 y para cenas de 20:30 a 00:00, y cierran los miércoles. El horario puede cambiar en festivos: conviene confirmarlo al reservar."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Tenéis opciones sin gluten?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sí. Gran parte de la carta se adapta a sin gluten, incluidos los cortes de parrilla. Avisando al reservar lo dejamos preparado. Si hay alergia o intolerancia, el equipo de sala repasa la carta plato a plato."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Cómo reservo mesa en Tierra de Nadie?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Por el formulario de la web, que llega por email o WhatsApp, o llamando al 950 71 81 37. Para fines de semana y grupos, cuanto antes mejor."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Hacéis comidas de empresa o de grupo?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sí, se montan mesas largas con menú cerrado y parrilla para compartir. Indicando número de comensales, fecha y presupuesto en el formulario, se responde con una propuesta concreta."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Hay terraza?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sí, en los dos locales. La de Aguadulce está frente a la playa y es la que más demanda tiene en verano: conviene pedirla al reservar."
-          }
-        }
-      ]
     }
   ]
 }
@@ -217,9 +158,9 @@
      teléfono propio de la sede de playa y horario definitivo de cada local. -->
 </head>
 
-<body class="antialiased">
+<body class="bg-carbon-950 text-crema-200 antialiased">
 
-<a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:bg-espuma-300 focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:uppercase focus:tracking-widest focus:text-noche-950">
+<a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:bg-dorado-400 focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:uppercase focus:tracking-widest focus:text-carbon-950">
   Saltar al contenido
 </a>
 
@@ -229,39 +170,40 @@
 <!-- ==========================================================================
      CABECERA
      ========================================================================== -->
-<header id="cabecera" data-superficie="tinta" data-sin-fondo class="fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color,padding] duration-500">
-  <div class="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-2.5 md:px-10 lg:py-3">
+<header id="cabecera" class="fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color,padding] duration-500">
+  <div class="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-4 md:px-10 lg:py-6">
 
     <a href="#inicio" class="group flex items-center gap-3" aria-label="Tierra de Nadie, ir al inicio">
-      <!-- El monograma "DE" del rotulo NO se reproduce: hace falta el vector
-           original del cliente. Ver README seccion 3.1. El logotipo si es fiel:
-           caja baja con punto final, en la maquina de escribir de la marca. -->
-      <span class="font-display text-[15px] leading-none tracking-[0.02em] text-fuerte md:text-[17px]">Tierra <em class="not-italic">de</em> nadie.</span>
+      <svg class="h-9 w-9 shrink-0 md:h-10 md:w-10" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="20" cy="20" r="18.5" stroke="#D9A441" stroke-width="1"/>
+        <path d="M20 9.5c2.9 3.3 4.4 6.3 4.4 9 0 2-.9 3.6-2.3 4.9.4-1.3.5-2.4.2-3.4-.4-1.5-1.5-2.9-3.2-4.4.3 1.6.1 2.9-.6 4-.6.9-1.6 1.8-2.8 2.8-1.6 1.3-2.4 2.8-2.4 4.6 0 3.6 3 6.5 6.7 6.5s6.7-2.9 6.7-6.5" stroke="#B4472A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="font-display text-[15px] font-semibold uppercase leading-none tracking-[0.28em] text-crema-50 md:text-base">Tierra de Nadie</span>
     </a>
 
     <!-- Navegación escritorio -->
     <nav class="hidden items-center gap-8 lg:flex" aria-label="Navegación principal">
-      <a href="#la-casa"  class="link-underline text-[13px] font-medium uppercase tracking-[0.14em] text-texto hover:text-fuerte">La casa</a>
-      <a href="#carta"    class="link-underline text-[13px] font-medium uppercase tracking-[0.14em] text-texto hover:text-fuerte">Carta</a>
-      <a href="#galeria"  class="link-underline text-[13px] font-medium uppercase tracking-[0.14em] text-texto hover:text-fuerte">Galería</a>
-      <a href="#locales"  class="link-underline text-[13px] font-medium uppercase tracking-[0.14em] text-texto hover:text-fuerte">Locales</a>
-      <a href="#resenas"  class="link-underline text-[13px] font-medium uppercase tracking-[0.14em] text-texto hover:text-fuerte">Reseñas</a>
-      <a href="#eventos"  class="link-underline text-[13px] font-medium uppercase tracking-[0.14em] text-texto hover:text-fuerte">Eventos</a>
+      <a href="#la-casa"  class="link-underline text-[13px] font-medium uppercase tracking-[0.14em] text-crema-200 hover:text-crema-50">La casa</a>
+      <a href="#carta"    class="link-underline text-[13px] font-medium uppercase tracking-[0.14em] text-crema-200 hover:text-crema-50">Carta</a>
+      <a href="#galeria"  class="link-underline text-[13px] font-medium uppercase tracking-[0.14em] text-crema-200 hover:text-crema-50">Galería</a>
+      <a href="#locales"  class="link-underline text-[13px] font-medium uppercase tracking-[0.14em] text-crema-200 hover:text-crema-50">Locales</a>
+      <a href="#resenas"  class="link-underline text-[13px] font-medium uppercase tracking-[0.14em] text-crema-200 hover:text-crema-50">Reseñas</a>
+      <a href="#eventos"  class="link-underline text-[13px] font-medium uppercase tracking-[0.14em] text-crema-200 hover:text-crema-50">Eventos</a>
     </nav>
 
     <div class="flex items-center gap-3">
-      <a href="tel:+34950718137" class="hidden items-center gap-2 text-[13px] font-medium tracking-wide text-texto hover:text-acento xl:flex" aria-label="Llamar al 950 71 81 37">
+      <a href="tel:+34950718137" class="hidden items-center gap-2 text-[13px] font-medium tracking-wide text-crema-200 hover:text-dorado-400 xl:flex" aria-label="Llamar al 950 71 81 37">
         <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.6 2.8a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
         950 71 81 37
       </a>
-      <a href="#reserva" class="btn btn-primary hidden px-6 py-3 text-[11px] md:inline-flex">Reservar mesa</a>
+      <a href="#reserva" class="btn btn-primary hidden text-[11px] md:inline-flex">Reservar mesa</a>
 
-      <button id="btn-menu" type="button" class="relative z-50 -mr-2 flex h-11 w-11 items-center justify-center lg:hidden" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú de navegación">
+      <button id="btn-menu" type="button" class="relative z-50 flex h-11 w-11 items-center justify-center lg:hidden" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú de navegación">
         <span class="sr-only">Menú</span>
         <span class="flex h-4 w-6 flex-col justify-between" aria-hidden="true">
-          <span data-linea class="block h-px w-full origin-center bg-fuerte transition-transform duration-300"></span>
-          <span data-linea class="block h-px w-full bg-fuerte transition-opacity duration-300"></span>
-          <span data-linea class="block h-px w-full origin-center bg-fuerte transition-transform duration-300"></span>
+          <span data-linea class="block h-px w-full origin-center bg-crema-50 transition-transform duration-300"></span>
+          <span data-linea class="block h-px w-full bg-crema-50 transition-opacity duration-300"></span>
+          <span data-linea class="block h-px w-full origin-center bg-crema-50 transition-transform duration-300"></span>
         </span>
       </button>
     </div>
@@ -269,20 +211,20 @@
 </header>
 
 <!-- Menú móvil a pantalla completa -->
-<div id="menu-movil" data-superficie="tinta" class="fixed inset-0 z-40 hidden" role="dialog" aria-modal="true" aria-label="Navegación">
+<div id="menu-movil" class="fixed inset-0 z-40 hidden bg-carbon-950" role="dialog" aria-modal="true" aria-label="Navegación">
   <div class="flex h-full flex-col justify-between px-6 pb-10 pt-28">
     <nav class="flex flex-col" aria-label="Navegación móvil">
-      <a href="#la-casa"  class="border-b border-filete/10 py-5 font-display text-3xl text-fuerte">La casa</a>
-      <a href="#carta"    class="border-b border-filete/10 py-5 font-display text-3xl text-fuerte">Carta</a>
-      <a href="#galeria"  class="border-b border-filete/10 py-5 font-display text-3xl text-fuerte">Galería</a>
-      <a href="#locales"  class="border-b border-filete/10 py-5 font-display text-3xl text-fuerte">Locales</a>
-      <a href="#resenas"  class="border-b border-filete/10 py-5 font-display text-3xl text-fuerte">Reseñas</a>
-      <a href="#eventos"  class="border-b border-filete/10 py-5 font-display text-3xl text-fuerte">Eventos</a>
+      <a href="#la-casa"  class="border-b border-crema-50/10 py-5 font-display text-3xl text-crema-50">La casa</a>
+      <a href="#carta"    class="border-b border-crema-50/10 py-5 font-display text-3xl text-crema-50">Carta</a>
+      <a href="#galeria"  class="border-b border-crema-50/10 py-5 font-display text-3xl text-crema-50">Galería</a>
+      <a href="#locales"  class="border-b border-crema-50/10 py-5 font-display text-3xl text-crema-50">Locales</a>
+      <a href="#resenas"  class="border-b border-crema-50/10 py-5 font-display text-3xl text-crema-50">Reseñas</a>
+      <a href="#eventos"  class="border-b border-crema-50/10 py-5 font-display text-3xl text-crema-50">Eventos</a>
     </nav>
     <div class="space-y-4">
       <a href="#reserva" class="btn btn-primary w-full">Reservar mesa</a>
       <a href="tel:+34950718137" class="btn btn-ghost w-full">Llamar · 950 71 81 37</a>
-      <p class="pt-2 text-center text-xs tracking-widest text-suave uppercase">Almería · Aguadulce</p>
+      <p class="pt-2 text-center text-xs tracking-widest text-crema-400 uppercase">Almería · Aguadulce</p>
     </div>
   </div>
 </div>
@@ -292,7 +234,7 @@
 <!-- ==========================================================================
      1. HERO
      ========================================================================== -->
-<section id="inicio" data-superficie="tinta" data-sin-fondo class="relative flex min-h-[100svh] items-end overflow-hidden">
+<section id="inicio" class="relative flex min-h-[100svh] items-end overflow-hidden">
   <div class="absolute inset-0 -z-10" data-parallax>
     <picture>
       <img src="/img/hero-parrilla-1600.webp"
@@ -308,15 +250,15 @@
 
   <div class="mx-auto w-full max-w-[1400px] px-5 pb-20 pt-32 md:px-10 md:pb-28">
     <p class="eyebrow mb-6 flex items-center gap-3" data-reveal>
-      <span class="inline-block h-px w-10 bg-espuma-300" aria-hidden="true"></span>
+      <span class="inline-block h-px w-10 bg-brasa-500" aria-hidden="true"></span>
       Parrilla argentina · Almería
     </p>
 
-    <h1 class="max-w-[20ch] text-[length:var(--text-hero)] font-normal text-fuerte" data-reveal style="--reveal-delay:90ms">
-      El fuego no<br>entiende de<br><em class="chapa not-italic">fronteras</em>
+    <h1 class="max-w-[16ch] text-[length:var(--text-hero)] font-normal leading-[0.92] tracking-[-0.02em] text-crema-50" data-reveal style="--reveal-delay:90ms">
+      El fuego no<br>entiende de<br><em class="not-italic text-brasa-400">fronteras</em>
     </h1>
 
-    <p class="mt-8 max-w-[46ch] text-lg leading-relaxed text-texto md:text-xl" data-reveal style="--reveal-delay:180ms">
+    <p class="mt-8 max-w-[46ch] text-lg leading-relaxed text-crema-200 md:text-xl" data-reveal style="--reveal-delay:180ms">
       Carne madurada, brasa lenta y manos argentinas. Dos casas en Almería:
       una en la ciudad, otra frente al mar.
     </p>
@@ -326,25 +268,25 @@
       <a href="#carta" class="btn btn-ghost">Ver la carta</a>
     </div>
 
-    <div class="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-filete/12 pt-6 text-xs uppercase tracking-[0.18em] text-suave" data-reveal style="--reveal-delay:340ms">
+    <div class="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-crema-50/12 pt-6 text-xs uppercase tracking-[0.18em] text-crema-400" data-reveal style="--reveal-delay:340ms">
       <span>C. Líbano 15 · Almería</span>
-      <span aria-hidden="true" class="text-espuma-300">·</span>
+      <span aria-hidden="true" class="text-brasa-500">·</span>
       <span>Aguadulce · frente a la playa</span>
-      <span aria-hidden="true" class="text-espuma-300">·</span>
+      <span aria-hidden="true" class="text-brasa-500">·</span>
       <span>€€–€€€</span>
     </div>
   </div>
 
-  <div class="pointer-events-none absolute bottom-6 right-5 hidden items-center gap-3 text-[10px] uppercase tracking-[0.28em] text-suave md:right-10 md:flex" aria-hidden="true">
+  <div class="pointer-events-none absolute bottom-6 right-5 hidden items-center gap-3 text-[10px] uppercase tracking-[0.28em] text-crema-400 md:right-10 md:flex" aria-hidden="true">
     <span>Scroll</span>
-    <span class="block h-10 w-px bg-gradient-to-b from-filete/70 to-transparent"></span>
+    <span class="block h-10 w-px bg-gradient-to-b from-crema-400/70 to-transparent"></span>
   </div>
 </section>
 
 <!-- ==========================================================================
      2. LA CASA
      ========================================================================== -->
-<section id="la-casa" data-superficie="papel" class="rule relative scroll-mt-20 py-24 md:py-36">
+<section id="la-casa" class="rule relative scroll-mt-20 py-24 md:py-36">
   <div class="mx-auto max-w-[1400px] px-5 md:px-10">
     <div class="grid gap-14 lg:grid-cols-12 lg:gap-16">
 
@@ -363,7 +305,7 @@
                sizes="(min-width:1024px) 24vw, 52vw"
                width="900" height="600" loading="lazy" decoding="async"
                alt="Equipo de sala de Tierra de Nadie atendiendo una mesa"
-               class="absolute bottom-0 right-0 w-[56%] border-[6px] border-fondo object-cover md:border-8"
+               class="absolute bottom-0 right-0 w-[56%] border-[6px] border-carbon-950 object-cover md:border-8"
                data-reveal="mask" style="--reveal-delay:180ms">
         </div>
       </div>
@@ -374,7 +316,7 @@
           Una parrilla argentina que ya huele a Almería
         </h2>
 
-        <div class="mt-8 max-w-[58ch] space-y-5 text-[17px] leading-relaxed text-texto" data-reveal style="--reveal-delay:150ms">
+        <div class="mt-8 max-w-[58ch] space-y-5 text-[17px] leading-relaxed text-crema-200" data-reveal style="--reveal-delay:150ms">
           <p>Tierra de nadie es el sitio donde no manda nadie. Aquí manda la brasa.</p>
           <p>
             Trabajamos cortes argentinos y carne madurada, empanadas hechas a mano y una carta
@@ -388,26 +330,26 @@
         </div>
 
         <!-- TODO (cliente): sustituir uno de estos datos por el año de apertura real ("Desde 20XX") -->
-        <dl class="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-filete/12 pt-10 sm:grid-cols-4">
+        <dl class="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-crema-50/12 pt-10 sm:grid-cols-4">
           <div data-reveal style="--reveal-delay:60ms">
             <dt class="sr-only">Valoración media</dt>
-            <dd class="font-display text-4xl text-acento">4,5<span class="text-2xl">★</span></dd>
-            <p class="mt-2 text-xs uppercase tracking-[0.14em] text-suave">Google y TripAdvisor</p>
+            <dd class="font-display text-4xl text-dorado-400">4,5<span class="text-2xl">★</span></dd>
+            <p class="mt-2 text-xs uppercase tracking-[0.14em] text-crema-400">Google y TripAdvisor</p>
           </div>
           <div data-reveal style="--reveal-delay:120ms">
             <dt class="sr-only">Posición en TripAdvisor</dt>
-            <dd class="font-display text-4xl text-acento">Top&nbsp;10</dd>
-            <p class="mt-2 text-xs uppercase tracking-[0.14em] text-suave">Restaurantes de Almería</p>
+            <dd class="font-display text-4xl text-dorado-400">Top&nbsp;10</dd>
+            <p class="mt-2 text-xs uppercase tracking-[0.14em] text-crema-400">Restaurantes de Almería</p>
           </div>
           <div data-reveal style="--reveal-delay:180ms">
             <dt class="sr-only">Número de locales</dt>
-            <dd class="font-display text-4xl text-acento">2</dd>
-            <p class="mt-2 text-xs uppercase tracking-[0.14em] text-suave">Almería y Aguadulce</p>
+            <dd class="font-display text-4xl text-dorado-400">2</dd>
+            <p class="mt-2 text-xs uppercase tracking-[0.14em] text-crema-400">Almería y Aguadulce</p>
           </div>
           <div data-reveal style="--reveal-delay:240ms">
             <dt class="sr-only">Adaptación sin gluten</dt>
-            <dd class="font-display text-4xl leading-none text-acento">Sin<br>gluten</dd>
-            <p class="mt-2 text-xs uppercase tracking-[0.14em] text-suave">Gran parte de la carta</p>
+            <dd class="font-display text-4xl leading-none text-dorado-400">Sin<br>gluten</dd>
+            <p class="mt-2 text-xs uppercase tracking-[0.14em] text-crema-400">Gran parte de la carta</p>
           </div>
         </dl>
       </div>
@@ -418,7 +360,7 @@
 <!-- ==========================================================================
      3. LA CARTA
      ========================================================================== -->
-<section id="carta" data-superficie="pizarra" class="rule relative scroll-mt-20 py-24 md:py-36">
+<section id="carta" class="rule relative scroll-mt-20 bg-carbon-900 py-24 md:py-36">
   <div class="mx-auto max-w-[1400px] px-5 md:px-10">
 
     <div class="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -428,13 +370,13 @@
           De la brasa a la mesa
         </h2>
       </div>
-      <p class="max-w-[38ch] text-[15px] leading-relaxed text-suave" data-reveal style="--reveal-delay:140ms">
+      <p class="max-w-[38ch] text-[15px] leading-relaxed text-crema-400" data-reveal style="--reveal-delay:140ms">
         Adaptamos gran parte de los platos a sin gluten. Avísanos al reservar y lo dejamos listo.
       </p>
     </div>
 
     <!-- Pestañas -->
-    <div class="border-b border-filete/12">
+    <div class="border-b border-crema-50/12">
       <div class="-mx-5 overflow-x-auto px-5 md:mx-0 md:px-0" data-tabs-scroll>
         <div role="tablist" aria-label="Secciones de la carta" class="flex min-w-max gap-7 md:gap-10">
           <button role="tab" id="tab-empezar"   aria-controls="panel-empezar"   aria-selected="true"  tabindex="0"  class="menu-tab">Para empezar</button>
@@ -458,24 +400,24 @@
       <ul class="lg:col-span-7">
         <li class="dish">
           <div class="min-w-0">
-            <h3 class="font-display text-xl font-normal text-fuerte">Croquetas caseras</h3>
-            <p class="mt-1 text-sm text-suave">Masa hecha en casa, fritas al momento.</p>
+            <h3 class="font-display text-xl font-normal text-crema-50">Croquetas caseras</h3>
+            <p class="mt-1 text-sm text-crema-400">Masa hecha en casa, fritas al momento.</p>
           </div>
           <span class="dish-dots" aria-hidden="true"></span>
           <span class="dish-price">€—</span>
         </li>
         <li class="dish">
           <div class="min-w-0">
-            <h3 class="flex flex-wrap items-center gap-2 font-display text-xl font-normal text-fuerte">Canelones de aguacate <span class="badge-sg">Sin gluten</span></h3>
-            <p class="mt-1 text-sm text-suave">Uno de los fijos de la casa. Fresco y con contraste.</p>
+            <h3 class="flex flex-wrap items-center gap-2 font-display text-xl font-normal text-crema-50">Canelones de aguacate <span class="badge-sg">Sin gluten</span></h3>
+            <p class="mt-1 text-sm text-crema-400">Uno de los fijos de la casa. Fresco y con contraste.</p>
           </div>
           <span class="dish-dots" aria-hidden="true"></span>
           <span class="dish-price">€—</span>
         </li>
         <li class="dish">
           <div class="min-w-0">
-            <h3 class="flex flex-wrap items-center gap-2 font-display text-xl font-normal text-fuerte">Tartar de atún <span class="badge-sg">Sin gluten</span></h3>
-            <p class="mt-1 text-sm text-suave">Atún cortado a cuchillo.</p>
+            <h3 class="flex flex-wrap items-center gap-2 font-display text-xl font-normal text-crema-50">Tartar de atún <span class="badge-sg">Sin gluten</span></h3>
+            <p class="mt-1 text-sm text-crema-400">Atún cortado a cuchillo.</p>
           </div>
           <span class="dish-dots" aria-hidden="true"></span>
           <span class="dish-price">€—</span>
@@ -493,16 +435,16 @@
       <ul class="lg:col-span-7">
         <li class="dish">
           <div class="min-w-0">
-            <h3 class="font-display text-xl font-normal text-fuerte">Empanadas argentinas</h3>
-            <p class="mt-1 text-sm text-suave">Repulgue a mano, horneadas al momento.</p>
+            <h3 class="font-display text-xl font-normal text-crema-50">Empanadas argentinas</h3>
+            <p class="mt-1 text-sm text-crema-400">Repulgue a mano, horneadas al momento.</p>
           </div>
           <span class="dish-dots" aria-hidden="true"></span>
           <span class="dish-price">€—</span>
         </li>
         <li class="dish">
           <div class="min-w-0">
-            <h3 class="font-display text-xl font-normal text-fuerte">Tapas de la casa</h3>
-            <p class="mt-1 text-sm text-suave">La tapa de Almería, con acento argentino.</p>
+            <h3 class="font-display text-xl font-normal text-crema-50">Tapas de la casa</h3>
+            <p class="mt-1 text-sm text-crema-400">La tapa de Almería, con acento argentino.</p>
           </div>
           <span class="dish-dots" aria-hidden="true"></span>
           <span class="dish-price">€—</span>
@@ -520,32 +462,32 @@
       <ul class="lg:col-span-7">
         <li class="dish">
           <div class="min-w-0">
-            <h3 class="flex flex-wrap items-center gap-2 font-display text-xl font-normal text-fuerte">Carne madurada <span class="badge-sg">Sin gluten</span></h3>
-            <p class="mt-1 text-sm text-suave">Maduración larga, sal gruesa y brasa. Poco más.</p>
+            <h3 class="flex flex-wrap items-center gap-2 font-display text-xl font-normal text-crema-50">Carne madurada <span class="badge-sg">Sin gluten</span></h3>
+            <p class="mt-1 text-sm text-crema-400">Maduración larga, sal gruesa y brasa. Poco más.</p>
           </div>
           <span class="dish-dots" aria-hidden="true"></span>
           <span class="dish-price">€—</span>
         </li>
         <li class="dish">
           <div class="min-w-0">
-            <h3 class="flex flex-wrap items-center gap-2 font-display text-xl font-normal text-fuerte">Churrasco <span class="badge-sg">Sin gluten</span></h3>
-            <p class="mt-1 text-sm text-suave">El clásico. Al punto que pidas.</p>
+            <h3 class="flex flex-wrap items-center gap-2 font-display text-xl font-normal text-crema-50">Churrasco <span class="badge-sg">Sin gluten</span></h3>
+            <p class="mt-1 text-sm text-crema-400">El clásico. Al punto que pidas.</p>
           </div>
           <span class="dish-dots" aria-hidden="true"></span>
           <span class="dish-price">€—</span>
         </li>
         <li class="dish">
           <div class="min-w-0">
-            <h3 class="flex flex-wrap items-center gap-2 font-display text-xl font-normal text-fuerte">Cortes argentinos <span class="badge-sg">Sin gluten</span></h3>
-            <p class="mt-1 text-sm text-suave">Selección de la parrilla. Pregunta al equipo de sala.</p>
+            <h3 class="flex flex-wrap items-center gap-2 font-display text-xl font-normal text-crema-50">Cortes argentinos <span class="badge-sg">Sin gluten</span></h3>
+            <p class="mt-1 text-sm text-crema-400">Selección de la parrilla. Pregunta al equipo de sala.</p>
           </div>
           <span class="dish-dots" aria-hidden="true"></span>
           <span class="dish-price">€—</span>
         </li>
         <li class="dish">
           <div class="min-w-0">
-            <h3 class="flex flex-wrap items-center gap-2 font-display text-xl font-normal text-fuerte">Parrillada para dos <span class="badge-sg">Sin gluten</span></h3>
-            <p class="mt-1 text-sm text-suave">Para compartir. Aviso: sale más de lo que esperas.</p>
+            <h3 class="flex flex-wrap items-center gap-2 font-display text-xl font-normal text-crema-50">Parrillada para dos <span class="badge-sg">Sin gluten</span></h3>
+            <p class="mt-1 text-sm text-crema-400">Para compartir. Aviso: sale más de lo que esperas.</p>
           </div>
           <span class="dish-dots" aria-hidden="true"></span>
           <span class="dish-price">€—</span>
@@ -563,16 +505,16 @@
       <ul class="lg:col-span-7">
         <li class="dish">
           <div class="min-w-0">
-            <h3 class="flex flex-wrap items-center gap-2 font-display text-xl font-normal text-fuerte">Pescado del día <span class="badge-sg">Sin gluten</span></h3>
-            <p class="mt-1 text-sm text-suave">Lo que entra ese día. A la brasa, como todo aquí.</p>
+            <h3 class="flex flex-wrap items-center gap-2 font-display text-xl font-normal text-crema-50">Pescado del día <span class="badge-sg">Sin gluten</span></h3>
+            <p class="mt-1 text-sm text-crema-400">Lo que entra ese día. A la brasa, como todo aquí.</p>
           </div>
           <span class="dish-dots" aria-hidden="true"></span>
           <span class="dish-price">€—</span>
         </li>
         <li class="dish">
           <div class="min-w-0">
-            <h3 class="flex flex-wrap items-center gap-2 font-display text-xl font-normal text-fuerte">Tartar de atún <span class="badge-sg">Sin gluten</span></h3>
-            <p class="mt-1 text-sm text-suave">También lo tienes como entrante.</p>
+            <h3 class="flex flex-wrap items-center gap-2 font-display text-xl font-normal text-crema-50">Tartar de atún <span class="badge-sg">Sin gluten</span></h3>
+            <p class="mt-1 text-sm text-crema-400">También lo tienes como entrante.</p>
           </div>
           <span class="dish-dots" aria-hidden="true"></span>
           <span class="dish-price">€—</span>
@@ -590,16 +532,16 @@
       <ul class="lg:col-span-7">
         <li class="dish">
           <div class="min-w-0">
-            <h3 class="font-display text-xl font-normal text-fuerte">Tarta de queso</h3>
-            <p class="mt-1 text-sm text-suave">La que se pide sola. Cremosa por dentro.</p>
+            <h3 class="font-display text-xl font-normal text-crema-50">Tarta de queso</h3>
+            <p class="mt-1 text-sm text-crema-400">La que se pide sola. Cremosa por dentro.</p>
           </div>
           <span class="dish-dots" aria-hidden="true"></span>
           <span class="dish-price">€—</span>
         </li>
         <li class="dish">
           <div class="min-w-0">
-            <h3 class="font-display text-xl font-normal text-fuerte">Postres caseros</h3>
-            <p class="mt-1 text-sm text-suave">Cambian. Pregunta qué hay hoy.</p>
+            <h3 class="font-display text-xl font-normal text-crema-50">Postres caseros</h3>
+            <p class="mt-1 text-sm text-crema-400">Cambian. Pregunta qué hay hoy.</p>
           </div>
           <span class="dish-dots" aria-hidden="true"></span>
           <span class="dish-price">€—</span>
@@ -607,7 +549,7 @@
       </ul>
     </div>
 
-    <p class="mt-10 border-t border-filete/12 pt-6 text-[13px] leading-relaxed text-suave">
+    <p class="mt-10 border-t border-crema-50/12 pt-6 text-[13px] leading-relaxed text-crema-400">
       Carta orientativa: platos y precios pendientes de confirmar con el restaurante.
       Consulta alérgenos con el equipo de sala antes de pedir.
     </p>
@@ -617,7 +559,7 @@
 <!-- ==========================================================================
      4. GALERÍA
      ========================================================================== -->
-<section id="galeria" data-superficie="papel" class="rule relative scroll-mt-20 py-24 md:py-36">
+<section id="galeria" class="rule relative scroll-mt-20 py-24 md:py-36">
   <div class="mx-auto max-w-[1400px] px-5 md:px-10">
     <div class="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
       <div>
@@ -626,7 +568,7 @@
           Mira antes de venir
         </h2>
       </div>
-      <p class="max-w-[34ch] text-[15px] leading-relaxed text-suave" data-reveal style="--reveal-delay:140ms">
+      <p class="max-w-[34ch] text-[15px] leading-relaxed text-crema-400" data-reveal style="--reveal-delay:140ms">
         Pulsa cualquier foto para verla en grande.
       </p>
     </div>
@@ -685,7 +627,7 @@
 <!-- ==========================================================================
      5. LOCALES
      ========================================================================== -->
-<section id="locales" data-superficie="papel-hondo" class="rule relative scroll-mt-20 py-24 md:py-36">
+<section id="locales" class="rule relative scroll-mt-20 bg-carbon-900 py-24 md:py-36">
   <div class="mx-auto max-w-[1400px] px-5 md:px-10">
     <div class="mb-12">
       <p class="eyebrow mb-6" data-reveal>Nuestros locales</p>
@@ -707,38 +649,38 @@
 
           <dl class="mt-7 space-y-4 text-[15px]">
             <div class="flex gap-3">
-              <dt class="w-24 shrink-0 text-xs uppercase tracking-[0.14em] text-suave pt-1">Dirección</dt>
-              <dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Calle+L%C3%ADbano+15%2C+04009+Almer%C3%ADa" target="_blank" rel="noopener" class="link-underline text-fuerte">C. Líbano 15, 04009 Almería</a></dd>
+              <dt class="w-24 shrink-0 text-xs uppercase tracking-[0.14em] text-crema-400 pt-1">Dirección</dt>
+              <dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Calle+L%C3%ADbano+15%2C+04009+Almer%C3%ADa" target="_blank" rel="noopener" class="link-underline text-crema-50">C. Líbano 15, 04009 Almería</a></dd>
             </div>
             <div class="flex gap-3">
-              <dt class="w-24 shrink-0 text-xs uppercase tracking-[0.14em] text-suave pt-1">Teléfono</dt>
-              <dd><a href="tel:+34950718137" class="link-underline text-fuerte">950 71 81 37</a></dd>
+              <dt class="w-24 shrink-0 text-xs uppercase tracking-[0.14em] text-crema-400 pt-1">Teléfono</dt>
+              <dd><a href="tel:+34950718137" class="link-underline text-crema-50">950 71 81 37</a></dd>
             </div>
             <div class="flex gap-3">
-              <dt class="w-24 shrink-0 text-xs uppercase tracking-[0.14em] text-suave pt-1">Horario</dt>
-              <dd class="text-texto">
+              <dt class="w-24 shrink-0 text-xs uppercase tracking-[0.14em] text-crema-400 pt-1">Horario</dt>
+              <dd class="text-crema-200">
                 Comidas 13:00–16:00 · Cenas 20:30–00:00<br>
-                <span class="text-suave">Cerrado los miércoles · sujeto a cambios, confirma al reservar</span>
+                <span class="text-crema-400">Cerrado los miércoles · sujeto a cambios, confirma al reservar</span>
               </dd>
             </div>
             <div class="flex gap-3">
-              <dt class="w-24 shrink-0 text-xs uppercase tracking-[0.14em] text-suave pt-1">Parking</dt>
-              <dd class="text-texto">Calle Haza de Acosta, a 305 m</dd>
+              <dt class="w-24 shrink-0 text-xs uppercase tracking-[0.14em] text-crema-400 pt-1">Parking</dt>
+              <dd class="text-crema-200">Calle Haza de Acosta, a 305 m</dd>
             </div>
           </dl>
 
           <ul class="mt-7 flex flex-wrap gap-2" aria-label="Servicios del local de Almería">
-            <li class="border border-filete/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-texto">Terraza</li>
-            <li class="border border-filete/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-texto">Para llevar</li>
-            <li class="border border-filete/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-texto">Entrega</li>
-            <li class="border border-filete/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-texto">Accesible en silla de ruedas</li>
-            <li class="border border-filete/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-texto">Wifi</li>
+            <li class="border border-crema-50/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-crema-200">Terraza</li>
+            <li class="border border-crema-50/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-crema-200">Para llevar</li>
+            <li class="border border-crema-50/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-crema-200">Entrega</li>
+            <li class="border border-crema-50/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-crema-200">Accesible en silla de ruedas</li>
+            <li class="border border-crema-50/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-crema-200">Wifi</li>
           </ul>
 
           <!-- Mapa: sólo se carga tras aceptar cookies -->
           <div class="mt-8" data-mapa data-src="https://www.google.com/maps?q=Calle%20L%C3%ADbano%2015%2C%2004009%20Almer%C3%ADa&amp;output=embed" data-title="Mapa de Tierra de Nadie en Calle Líbano 15, Almería">
-            <div class="flex aspect-[16/9] flex-col items-center justify-center gap-4 border border-dashed border-filete/20 bg-alza p-6 text-center" data-mapa-aviso>
-              <p class="max-w-[38ch] text-sm text-suave">El mapa lo sirve Google Maps y usa cookies propias. Cárgalo si quieres verlo aquí.</p>
+            <div class="flex aspect-[16/9] flex-col items-center justify-center gap-4 border border-dashed border-crema-50/20 bg-carbon-950 p-6 text-center" data-mapa-aviso>
+              <p class="max-w-[38ch] text-sm text-crema-400">El mapa lo sirve Google Maps y usa cookies propias. Cárgalo si quieres verlo aquí.</p>
               <button type="button" class="btn btn-ghost text-[11px]" data-mapa-cargar>Cargar el mapa</button>
             </div>
           </div>
@@ -761,37 +703,37 @@
 
           <dl class="mt-7 space-y-4 text-[15px]">
             <div class="flex gap-3">
-              <dt class="w-24 shrink-0 text-xs uppercase tracking-[0.14em] text-suave pt-1">Dirección</dt>
-              <dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Plaza+Sud%C3%A1frica+3%2C+Aguadulce%2C+Roquetas+de+Mar" target="_blank" rel="noopener" class="link-underline text-fuerte">Plaza Sudáfrica 3, Aguadulce (Roquetas de Mar)</a></dd>
+              <dt class="w-24 shrink-0 text-xs uppercase tracking-[0.14em] text-crema-400 pt-1">Dirección</dt>
+              <dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Plaza+Sud%C3%A1frica+3%2C+Aguadulce%2C+Roquetas+de+Mar" target="_blank" rel="noopener" class="link-underline text-crema-50">Plaza Sudáfrica 3, Aguadulce (Roquetas de Mar)</a></dd>
             </div>
             <div class="flex gap-3">
-              <dt class="w-24 shrink-0 text-xs uppercase tracking-[0.14em] text-suave pt-1">Teléfono</dt>
+              <dt class="w-24 shrink-0 text-xs uppercase tracking-[0.14em] text-crema-400 pt-1">Teléfono</dt>
               <!-- TODO (cliente): teléfono propio de la sede de playa, si lo tiene -->
-              <dd><a href="tel:+34950718137" class="link-underline text-fuerte">950 71 81 37</a></dd>
+              <dd><a href="tel:+34950718137" class="link-underline text-crema-50">950 71 81 37</a></dd>
             </div>
             <div class="flex gap-3">
-              <dt class="w-24 shrink-0 text-xs uppercase tracking-[0.14em] text-suave pt-1">Horario</dt>
-              <dd class="text-texto">
+              <dt class="w-24 shrink-0 text-xs uppercase tracking-[0.14em] text-crema-400 pt-1">Horario</dt>
+              <dd class="text-crema-200">
                 Comidas 13:00–16:00 · Cenas 20:30–00:00<br>
-                <span class="text-suave">Cerrado los miércoles · sujeto a cambios, confirma al reservar</span>
+                <span class="text-crema-400">Cerrado los miércoles · sujeto a cambios, confirma al reservar</span>
               </dd>
             </div>
             <div class="flex gap-3">
-              <dt class="w-24 shrink-0 text-xs uppercase tracking-[0.14em] text-suave pt-1">Plus</dt>
-              <dd class="text-texto">Terraza con vistas al mar</dd>
+              <dt class="w-24 shrink-0 text-xs uppercase tracking-[0.14em] text-crema-400 pt-1">Plus</dt>
+              <dd class="text-crema-200">Terraza con vistas al mar</dd>
             </div>
           </dl>
 
           <ul class="mt-7 flex flex-wrap gap-2" aria-label="Servicios del local de Aguadulce">
-            <li class="border border-filete/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-texto">Terraza</li>
-            <li class="border border-filete/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-texto">Vistas al mar</li>
-            <li class="border border-filete/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-texto">Para llevar</li>
-            <li class="border border-filete/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-texto">Grupos</li>
+            <li class="border border-crema-50/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-crema-200">Terraza</li>
+            <li class="border border-crema-50/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-crema-200">Vistas al mar</li>
+            <li class="border border-crema-50/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-crema-200">Para llevar</li>
+            <li class="border border-crema-50/16 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-crema-200">Grupos</li>
           </ul>
 
           <div class="mt-8" data-mapa data-src="https://www.google.com/maps?q=Plaza%20Sud%C3%A1frica%203%2C%20Aguadulce%2C%20Roquetas%20de%20Mar&amp;output=embed" data-title="Mapa de Tierra de Nadie Playa en Plaza Sudáfrica 3, Aguadulce">
-            <div class="flex aspect-[16/9] flex-col items-center justify-center gap-4 border border-dashed border-filete/20 bg-alza p-6 text-center" data-mapa-aviso>
-              <p class="max-w-[38ch] text-sm text-suave">El mapa lo sirve Google Maps y usa cookies propias. Cárgalo si quieres verlo aquí.</p>
+            <div class="flex aspect-[16/9] flex-col items-center justify-center gap-4 border border-dashed border-crema-50/20 bg-carbon-950 p-6 text-center" data-mapa-aviso>
+              <p class="max-w-[38ch] text-sm text-crema-400">El mapa lo sirve Google Maps y usa cookies propias. Cárgalo si quieres verlo aquí.</p>
               <button type="button" class="btn btn-ghost text-[11px]" data-mapa-cargar>Cargar el mapa</button>
             </div>
           </div>
@@ -809,7 +751,7 @@
 <!-- ==========================================================================
      6. RESEÑAS
      ========================================================================== -->
-<section id="resenas" data-superficie="tinta" class="rule relative scroll-mt-20 py-24 md:py-36">
+<section id="resenas" class="rule relative scroll-mt-20 py-24 md:py-36">
   <div class="mx-auto max-w-[1400px] px-5 md:px-10">
 
     <div class="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -818,7 +760,7 @@
         <h2 class="max-w-[18ch] text-[length:var(--text-display)]" data-reveal style="--reveal-delay:80ms">
           Lo que más se repite
         </h2>
-        <p class="mt-6 max-w-[52ch] text-[15px] leading-relaxed text-suave" data-reveal style="--reveal-delay:120ms">
+        <p class="mt-6 max-w-[52ch] text-[15px] leading-relaxed text-crema-400" data-reveal style="--reveal-delay:120ms">
           Miles de opiniones entre Google y TripAdvisor, con una media de 4,4–4,6★ y un puesto
           en el top 10 de Almería. Esto es lo que aparece una y otra vez.
         </p>
@@ -826,8 +768,8 @@
 
       <div class="flex items-center gap-6 md:shrink-0" data-reveal style="--reveal-delay:160ms">
         <div class="text-right">
-          <p class="font-display text-5xl leading-none text-acento">4,5<span class="text-3xl">★</span></p>
-          <p class="mt-2 text-xs uppercase tracking-[0.14em] text-suave">Media Google · TripAdvisor</p>
+          <p class="font-display text-5xl leading-none text-dorado-400">4,5<span class="text-3xl">★</span></p>
+          <p class="mt-2 text-xs uppercase tracking-[0.14em] text-crema-400">Media Google · TripAdvisor</p>
         </div>
       </div>
     </div>
@@ -838,49 +780,49 @@
       <ul id="pista-resenas" class="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-5 pb-4 md:mx-0 md:gap-6 md:px-0" tabindex="0" aria-label="Resúmenes de reseñas, desplazamiento horizontal">
 
         <li class="card w-[85vw] shrink-0 snap-start p-8 sm:w-[62vw] md:w-[calc((100%-3rem)/3)] md:p-10">
-          <p class="text-acento" aria-label="Valoración: 5 sobre 5 estrellas"><span aria-hidden="true">★★★★★</span></p>
+          <p class="text-dorado-400" aria-label="Valoración: 5 sobre 5 estrellas"><span aria-hidden="true">★★★★★</span></p>
           <blockquote class="mt-5">
-            <p class="font-display text-[26px] leading-[1.25] text-fuerte">«El trato del equipo de sala hace la mitad del trabajo.»</p>
+            <p class="font-display text-[26px] leading-[1.25] text-crema-50">«El trato del equipo de sala hace la mitad del trabajo.»</p>
           </blockquote>
-          <p class="mt-5 text-[15px] leading-relaxed text-texto">Cercanía y profesionalidad son el elogio que más se repite: se nota que la gente vuelve por cómo la atienden.</p>
-          <p class="mt-6 border-t border-filete/12 pt-4 text-[11px] uppercase tracking-[0.16em] text-suave">Resumen de reseñas · Google</p>
+          <p class="mt-5 text-[15px] leading-relaxed text-crema-200">Cercanía y profesionalidad son el elogio que más se repite: se nota que la gente vuelve por cómo la atienden.</p>
+          <p class="mt-6 border-t border-crema-50/12 pt-4 text-[11px] uppercase tracking-[0.16em] text-crema-400">Resumen de reseñas · Google</p>
         </li>
 
         <li class="card w-[85vw] shrink-0 snap-start p-8 sm:w-[62vw] md:w-[calc((100%-3rem)/3)] md:p-10">
-          <p class="text-acento" aria-label="Valoración: 5 sobre 5 estrellas"><span aria-hidden="true">★★★★★</span></p>
+          <p class="text-dorado-400" aria-label="Valoración: 5 sobre 5 estrellas"><span aria-hidden="true">★★★★★</span></p>
           <blockquote class="mt-5">
-            <p class="font-display text-[26px] leading-[1.25] text-fuerte">«Raciones para no levantarse con hambre.»</p>
+            <p class="font-display text-[26px] leading-[1.25] text-crema-50">«Raciones para no levantarse con hambre.»</p>
           </blockquote>
-          <p class="mt-5 text-[15px] leading-relaxed text-texto">La abundancia de las raciones y la relación calidad-precio aparecen en comentario tras comentario, sobre todo con la parrillada.</p>
-          <p class="mt-6 border-t border-filete/12 pt-4 text-[11px] uppercase tracking-[0.16em] text-suave">Resumen de reseñas · TripAdvisor</p>
+          <p class="mt-5 text-[15px] leading-relaxed text-crema-200">La abundancia de las raciones y la relación calidad-precio aparecen en comentario tras comentario, sobre todo con la parrillada.</p>
+          <p class="mt-6 border-t border-crema-50/12 pt-4 text-[11px] uppercase tracking-[0.16em] text-crema-400">Resumen de reseñas · TripAdvisor</p>
         </li>
 
         <li class="card w-[85vw] shrink-0 snap-start p-8 sm:w-[62vw] md:w-[calc((100%-3rem)/3)] md:p-10">
-          <p class="text-acento" aria-label="Valoración: 5 sobre 5 estrellas"><span aria-hidden="true">★★★★★</span></p>
+          <p class="text-dorado-400" aria-label="Valoración: 5 sobre 5 estrellas"><span aria-hidden="true">★★★★★</span></p>
           <blockquote class="mt-5">
-            <p class="font-display text-[26px] leading-[1.25] text-fuerte">«Cocina hecha con manos argentinas.»</p>
+            <p class="font-display text-[26px] leading-[1.25] text-crema-50">«Cocina hecha con manos argentinas.»</p>
           </blockquote>
-          <p class="mt-5 text-[15px] leading-relaxed text-texto">El punto de la carne y el sabor de la parrilla son el motivo que más se menciona para repetir.</p>
-          <p class="mt-6 border-t border-filete/12 pt-4 text-[11px] uppercase tracking-[0.16em] text-suave">Resumen de reseñas · Google</p>
+          <p class="mt-5 text-[15px] leading-relaxed text-crema-200">El punto de la carne y el sabor de la parrilla son el motivo que más se menciona para repetir.</p>
+          <p class="mt-6 border-t border-crema-50/12 pt-4 text-[11px] uppercase tracking-[0.16em] text-crema-400">Resumen de reseñas · Google</p>
         </li>
 
         <li class="card w-[85vw] shrink-0 snap-start p-8 sm:w-[62vw] md:w-[calc((100%-3rem)/3)] md:p-10">
-          <p class="text-acento" aria-label="Valoración: 4 sobre 5 estrellas"><span aria-hidden="true">★★★★</span><span class="text-suave" aria-hidden="true">★</span></p>
+          <p class="text-dorado-400" aria-label="Valoración: 4 sobre 5 estrellas"><span aria-hidden="true">★★★★</span><span class="text-crema-400" aria-hidden="true">★</span></p>
           <blockquote class="mt-5">
-            <p class="font-display text-[26px] leading-[1.25] text-fuerte">«Celíacos: aquí sí se puede pedir casi todo.»</p>
+            <p class="font-display text-[26px] leading-[1.25] text-crema-50">«Celíacos: aquí sí se puede pedir casi todo.»</p>
           </blockquote>
-          <p class="mt-5 text-[15px] leading-relaxed text-texto">La adaptación de gran parte de la carta a sin gluten es un motivo recurrente de agradecimiento en las opiniones.</p>
-          <p class="mt-6 border-t border-filete/12 pt-4 text-[11px] uppercase tracking-[0.16em] text-suave">Resumen de reseñas · TripAdvisor</p>
+          <p class="mt-5 text-[15px] leading-relaxed text-crema-200">La adaptación de gran parte de la carta a sin gluten es un motivo recurrente de agradecimiento en las opiniones.</p>
+          <p class="mt-6 border-t border-crema-50/12 pt-4 text-[11px] uppercase tracking-[0.16em] text-crema-400">Resumen de reseñas · TripAdvisor</p>
         </li>
       </ul>
 
       <div class="mt-6 flex items-center justify-between gap-4">
-        <p class="text-xs text-suave">Resúmenes de las opiniones publicadas, no citas literales.</p>
+        <p class="text-xs text-crema-400">Resúmenes de las opiniones publicadas, no citas literales.</p>
         <div class="flex gap-2">
-          <button type="button" id="resenas-prev" class="flex h-11 w-11 items-center justify-center border border-filete/20 text-fuerte transition-colors hover:border-filete hover:bg-fuerte hover:text-fondo" aria-label="Reseña anterior" aria-controls="pista-resenas">
+          <button type="button" id="resenas-prev" class="flex h-11 w-11 items-center justify-center border border-crema-50/20 text-crema-50 transition-colors hover:border-crema-50 hover:bg-crema-50 hover:text-carbon-950" aria-label="Reseña anterior" aria-controls="pista-resenas">
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <button type="button" id="resenas-next" class="flex h-11 w-11 items-center justify-center border border-filete/20 text-fuerte transition-colors hover:border-filete hover:bg-fuerte hover:text-fondo" aria-label="Reseña siguiente" aria-controls="pista-resenas">
+          <button type="button" id="resenas-next" class="flex h-11 w-11 items-center justify-center border border-crema-50/20 text-crema-50 transition-colors hover:border-crema-50 hover:bg-crema-50 hover:text-carbon-950" aria-label="Reseña siguiente" aria-controls="pista-resenas">
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
         </div>
@@ -892,7 +834,7 @@
 <!-- ==========================================================================
      7. EVENTOS Y GRUPOS
      ========================================================================== -->
-<section id="eventos" data-superficie="tinta" data-sin-fondo class="rule relative scroll-mt-20 overflow-hidden">
+<section id="eventos" class="rule relative scroll-mt-20 overflow-hidden">
   <div class="relative">
     <img src="/img/eventos-mesa-larga-900.webp" srcset="/img/eventos-mesa-larga-900.webp 900w, /img/eventos-mesa-larga-1800.webp 1800w"
          sizes="100vw" width="1800" height="771" loading="lazy" decoding="async"
@@ -906,7 +848,7 @@
         <h2 class="text-[length:var(--text-display)]" data-reveal style="--reveal-delay:80ms">
           Comidas de empresa, celebraciones y mesas largas
         </h2>
-        <p class="mt-7 text-[17px] leading-relaxed text-texto" data-reveal style="--reveal-delay:150ms">
+        <p class="mt-7 text-[17px] leading-relaxed text-crema-200" data-reveal style="--reveal-delay:150ms">
           Montamos la mesa para grupos con menú cerrado y parrilla para compartir.
           Cuéntanos cuántos sois, qué día y qué presupuesto manejas: te contestamos con una
           propuesta concreta.
@@ -921,95 +863,9 @@
 </section>
 
 <!-- ==========================================================================
-     8. PREGUNTAS FRECUENTES
-     Contenido visible + FAQPage en el JSON-LD. Las dos cosas hacen falta:
-     Google no admite FAQPage sobre respuestas que no estén en la página.
-     TODO (cliente): confirmar las cinco respuestas antes de publicar.
+     8. RESERVA / CONTACTO
      ========================================================================== -->
-<section id="preguntas" data-superficie="papel" class="rule relative scroll-mt-20 py-24 md:py-36">
-  <div class="mx-auto max-w-[1400px] px-5 md:px-10">
-    <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
-
-      <div class="lg:col-span-4">
-        <p class="eyebrow mb-6" data-reveal>Antes de venir</p>
-        <h2 class="text-[length:var(--text-display)]" data-reveal style="--reveal-delay:80ms">
-          Lo que más nos preguntáis
-        </h2>
-        <p class="mt-7 text-[17px] leading-relaxed text-texto" data-reveal style="--reveal-delay:150ms">
-          Si lo tuyo no está aquí, llama al
-          <a href="tel:+34950718137" class="link-underline font-semibold text-acento">950 71 81 37</a>
-          y te lo contamos en un minuto.
-        </p>
-      </div>
-
-      <div class="lg:col-span-8" data-reveal style="--reveal-delay:120ms">
-        <details class="faq" name="faq">
-          <summary class="faq-q">¿Dónde estáis y qué horario tenéis?</summary>
-          <div class="faq-a">
-            <p>
-              Tenemos dos casas: <strong class="text-fuerte">C. Líbano 15, en Almería</strong>, y
-              <strong class="text-fuerte">Plaza Sudáfrica 3, en Aguadulce</strong> (Roquetas de Mar),
-              frente a la playa. Las dos abren para comidas de 13:00 a 16:00 y para cenas de
-              20:30 a 00:00, y cierran los miércoles. El horario puede cambiar en festivos:
-              confírmalo al reservar.
-            </p>
-          </div>
-        </details>
-
-        <details class="faq" name="faq">
-          <summary class="faq-q">¿Tenéis opciones sin gluten?</summary>
-          <div class="faq-a">
-            <p>
-              Sí. Gran parte de la carta se adapta a sin gluten, incluidos los cortes de parrilla.
-              Avísanos al reservar y lo dejamos preparado. Si hay alergia o intolerancia de por
-              medio, dínoslo también al llegar y lo repasamos plato a plato con el equipo de sala.
-            </p>
-          </div>
-        </details>
-
-        <details class="faq" name="faq">
-          <summary class="faq-q">¿Cómo reservo mesa?</summary>
-          <div class="faq-a">
-            <p>
-              Por el <a href="#reserva" class="link-underline font-semibold text-acento">formulario de esta web</a>,
-              que te llega por email o WhatsApp, o llamando al
-              <a href="tel:+34950718137" class="link-underline font-semibold text-acento">950 71 81 37</a>.
-              Para fines de semana y grupos, cuanto antes mejor.
-            </p>
-          </div>
-        </details>
-
-        <details class="faq" name="faq">
-          <summary class="faq-q">¿Hacéis comidas de empresa o de grupo?</summary>
-          <div class="faq-a">
-            <p>
-              Sí, montamos mesas largas con menú cerrado y parrilla para compartir.
-              Cuéntanos cuántos sois, qué día y qué presupuesto manejas en el
-              <a href="#reserva" class="link-underline font-semibold text-acento">formulario</a>
-              y te contestamos con una propuesta concreta.
-            </p>
-          </div>
-        </details>
-
-        <details class="faq" name="faq">
-          <summary class="faq-q">¿Hay terraza?</summary>
-          <div class="faq-a">
-            <p>
-              Sí, en los dos locales. La de Aguadulce está frente a la playa, que es la que
-              vuela antes en verano: si la quieres, pídela al reservar y hacemos lo posible.
-            </p>
-          </div>
-        </details>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ==========================================================================
-     9. RESERVA / CONTACTO
-     ========================================================================== -->
-<section id="reserva" data-superficie="papel-hondo" class="rule relative scroll-mt-20 py-24 md:py-36">
+<section id="reserva" class="rule relative scroll-mt-20 bg-carbon-900 py-24 md:py-36">
   <div class="mx-auto max-w-[1400px] px-5 md:px-10">
     <div class="grid gap-14 lg:grid-cols-12 lg:gap-16">
 
@@ -1019,9 +875,9 @@
         <h2 class="max-w-[16ch] text-[length:var(--text-display)]" data-reveal style="--reveal-delay:80ms">
           Dinos cuándo y te guardamos sitio
         </h2>
-        <p class="mt-6 max-w-[50ch] text-[15px] leading-relaxed text-suave" data-reveal style="--reveal-delay:120ms">
+        <p class="mt-6 max-w-[50ch] text-[15px] leading-relaxed text-crema-400" data-reveal style="--reveal-delay:120ms">
           Rellena los datos y te llega todo montado por email o WhatsApp. Si lo prefieres rápido,
-          llama al <a href="tel:+34950718137" class="link-underline text-acento">950 71 81 37</a>.
+          llama al <a href="tel:+34950718137" class="link-underline text-dorado-400">950 71 81 37</a>.
         </p>
 
         <!-- TODO: sin backend. El envío abre el cliente de correo o WhatsApp con el mensaje montado.
@@ -1077,16 +933,16 @@
           </div>
 
           <div class="sm:col-span-2">
-            <label class="field-label" for="r-notas">Notas <span class="normal-case tracking-normal text-suave">(alergias, sin gluten, trona, evento…)</span></label>
+            <label class="field-label" for="r-notas">Notas <span class="normal-case tracking-normal text-crema-400">(alergias, sin gluten, trona, evento…)</span></label>
             <textarea class="field resize-y" id="r-notas" name="notas" rows="4" maxlength="600"
                       placeholder="Somos 6, uno celíaco. Si puede ser, mesa en la terraza."></textarea>
           </div>
 
           <div class="sm:col-span-2">
-            <label class="flex cursor-pointer items-start gap-3 text-sm leading-relaxed text-texto">
+            <label class="flex cursor-pointer items-start gap-3 text-sm leading-relaxed text-crema-200">
               <input type="checkbox" id="r-privacidad" name="privacidad" required aria-describedby="err-privacidad"
                      class="mt-0.5 h-4 w-4 shrink-0 accent-[#B4472A]">
-              <span>He leído y acepto la <a href="/legal/privacidad.html" class="link-underline text-acento">política de privacidad</a>. *</span>
+              <span>He leído y acepto la <a href="/legal/privacidad.html" class="link-underline text-dorado-400">política de privacidad</a>. *</span>
             </label>
             <p class="field-error" id="err-privacidad"></p>
           </div>
@@ -1097,11 +953,11 @@
             <button type="button" id="btn-whatsapp" class="btn btn-ghost">Enviar por WhatsApp</button>
           </div>
 
-          <p class="sm:col-span-2 text-[13px] leading-relaxed text-suave">
+          <p class="sm:col-span-2 text-[13px] leading-relaxed text-crema-400">
             * Campos obligatorios. La reserva no queda confirmada hasta que el restaurante responde.
           </p>
 
-          <p id="form-estado" class="sm:col-span-2 hidden border border-oliva-500/50 bg-oliva-500/12 p-4 text-[15px] text-fuerte" role="status" aria-live="polite"></p>
+          <p id="form-estado" class="sm:col-span-2 hidden border border-oliva-500/50 bg-oliva-500/12 p-4 text-[15px] text-crema-50" role="status" aria-live="polite"></p>
         </form>
       </div>
 
@@ -1112,34 +968,34 @@
 
           <dl class="mt-8 space-y-7">
             <div>
-              <dt class="text-xs uppercase tracking-[0.16em] text-suave">Teléfono</dt>
-              <dd class="mt-2"><a href="tel:+34950718137" class="font-display text-3xl text-fuerte hover:text-acento">950 71 81 37</a></dd>
+              <dt class="text-xs uppercase tracking-[0.16em] text-crema-400">Teléfono</dt>
+              <dd class="mt-2"><a href="tel:+34950718137" class="font-display text-3xl text-crema-50 hover:text-dorado-400">950 71 81 37</a></dd>
             </div>
             <div>
-              <dt class="text-xs uppercase tracking-[0.16em] text-suave">Almería</dt>
-              <dd class="mt-2 text-[15px] text-texto">C. Líbano 15, 04009 Almería</dd>
+              <dt class="text-xs uppercase tracking-[0.16em] text-crema-400">Almería</dt>
+              <dd class="mt-2 text-[15px] text-crema-200">C. Líbano 15, 04009 Almería</dd>
             </div>
             <div>
-              <dt class="text-xs uppercase tracking-[0.16em] text-suave">Aguadulce</dt>
-              <dd class="mt-2 text-[15px] text-texto">Plaza Sudáfrica 3, Aguadulce (Roquetas de Mar)</dd>
+              <dt class="text-xs uppercase tracking-[0.16em] text-crema-400">Aguadulce</dt>
+              <dd class="mt-2 text-[15px] text-crema-200">Plaza Sudáfrica 3, Aguadulce (Roquetas de Mar)</dd>
             </div>
             <div>
-              <dt class="text-xs uppercase tracking-[0.16em] text-suave">Horario</dt>
-              <dd class="mt-2 text-[15px] text-texto">
+              <dt class="text-xs uppercase tracking-[0.16em] text-crema-400">Horario</dt>
+              <dd class="mt-2 text-[15px] text-crema-200">
                 Comidas 13:00–16:00<br>
                 Cenas 20:30–00:00<br>
-                <span class="text-suave">Cerrado los miércoles. Sujeto a cambios: confírmalo al reservar.</span>
+                <span class="text-crema-400">Cerrado los miércoles. Sujeto a cambios: confírmalo al reservar.</span>
               </dd>
             </div>
           </dl>
 
-          <div class="mt-8 border-t border-filete/12 pt-7">
-            <p class="text-xs uppercase tracking-[0.16em] text-suave">Síguenos</p>
+          <div class="mt-8 border-t border-crema-50/12 pt-7">
+            <p class="text-xs uppercase tracking-[0.16em] text-crema-400">Síguenos</p>
             <div class="mt-4 flex gap-3">
-              <a href="https://www.instagram.com/tierra_de_nadie_restaurante" target="_blank" rel="noopener me" class="flex h-11 w-11 items-center justify-center border border-filete/20 text-fuerte transition-colors hover:border-filete hover:bg-fuerte hover:text-fondo" aria-label="Instagram de Tierra de Nadie (se abre en una pestaña nueva)">
+              <a href="https://www.instagram.com/tierra_de_nadie_restaurante" target="_blank" rel="noopener me" class="flex h-11 w-11 items-center justify-center border border-crema-50/20 text-crema-50 transition-colors hover:border-crema-50 hover:bg-crema-50 hover:text-carbon-950" aria-label="Instagram de Tierra de Nadie (se abre en una pestaña nueva)">
                 <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>
               </a>
-              <a href="https://www.facebook.com/tierradenadierestaurante" target="_blank" rel="noopener me" class="flex h-11 w-11 items-center justify-center border border-filete/20 text-fuerte transition-colors hover:border-filete hover:bg-fuerte hover:text-fondo" aria-label="Facebook de Tierra de Nadie (se abre en una pestaña nueva)">
+              <a href="https://www.facebook.com/tierradenadierestaurante" target="_blank" rel="noopener me" class="flex h-11 w-11 items-center justify-center border border-crema-50/20 text-crema-50 transition-colors hover:border-crema-50 hover:bg-crema-50 hover:text-carbon-950" aria-label="Facebook de Tierra de Nadie (se abre en una pestaña nueva)">
                 <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>
               </a>
             </div>
@@ -1155,62 +1011,64 @@
 <!-- ==========================================================================
      PIE
      ========================================================================== -->
-<footer data-superficie="tinta" class="rule py-16 md:py-20">
+<footer class="rule bg-carbon-950 py-16 md:py-20">
   <div class="mx-auto max-w-[1400px] px-5 md:px-10">
     <div class="grid gap-12 md:grid-cols-12">
 
       <div class="md:col-span-5">
         <div class="flex items-center gap-3">
-          <!-- Monograma pendiente del vector del cliente (README 3.1) -->
-          <span class="font-display text-base font-semibold uppercase leading-none tracking-[0.28em] text-fuerte">Tierra de Nadie</span>
+          <svg class="h-10 w-10 shrink-0" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false">
+            <circle cx="20" cy="20" r="18.5" stroke="#D9A441" stroke-width="1"/>
+            <path d="M20 9.5c2.9 3.3 4.4 6.3 4.4 9 0 2-.9 3.6-2.3 4.9.4-1.3.5-2.4.2-3.4-.4-1.5-1.5-2.9-3.2-4.4.3 1.6.1 2.9-.6 4-.6.9-1.6 1.8-2.8 2.8-1.6 1.3-2.4 2.8-2.4 4.6 0 3.6 3 6.5 6.7 6.5s6.7-2.9 6.7-6.5" stroke="#B4472A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="font-display text-base font-semibold uppercase leading-none tracking-[0.28em] text-crema-50">Tierra de Nadie</span>
         </div>
-        <p class="mt-6 max-w-[38ch] text-[15px] leading-relaxed text-suave">
+        <p class="mt-6 max-w-[38ch] text-[15px] leading-relaxed text-crema-400">
           Parrilla argentina, tapas y fusión en Almería. Dos casas: una en la ciudad y otra
           frente al mar, en Aguadulce.
         </p>
       </div>
 
       <nav class="md:col-span-3" aria-label="Enlaces del sitio">
-        <h2 class="mb-5 font-sans text-xs uppercase tracking-[0.18em] text-suave">Secciones</h2>
+        <h2 class="mb-5 font-sans text-xs uppercase tracking-[0.18em] text-crema-400">Secciones</h2>
         <ul class="space-y-3 text-[15px]">
-          <li><a href="#la-casa" class="link-underline text-texto hover:text-fuerte">La casa</a></li>
-          <li><a href="#carta" class="link-underline text-texto hover:text-fuerte">La carta</a></li>
-          <li><a href="#galeria" class="link-underline text-texto hover:text-fuerte">Galería</a></li>
-          <li><a href="#locales" class="link-underline text-texto hover:text-fuerte">Locales</a></li>
-          <li><a href="#eventos" class="link-underline text-texto hover:text-fuerte">Eventos y grupos</a></li>
-          <li><a href="#preguntas" class="link-underline text-texto hover:text-fuerte">Preguntas frecuentes</a></li>
-          <li><a href="#reserva" class="link-underline text-texto hover:text-fuerte">Reservar</a></li>
+          <li><a href="#la-casa" class="link-underline text-crema-200 hover:text-crema-50">La casa</a></li>
+          <li><a href="#carta" class="link-underline text-crema-200 hover:text-crema-50">La carta</a></li>
+          <li><a href="#galeria" class="link-underline text-crema-200 hover:text-crema-50">Galería</a></li>
+          <li><a href="#locales" class="link-underline text-crema-200 hover:text-crema-50">Locales</a></li>
+          <li><a href="#eventos" class="link-underline text-crema-200 hover:text-crema-50">Eventos y grupos</a></li>
+          <li><a href="#reserva" class="link-underline text-crema-200 hover:text-crema-50">Reservar</a></li>
         </ul>
       </nav>
 
       <div class="md:col-span-4">
-        <h2 class="mb-5 font-sans text-xs uppercase tracking-[0.18em] text-suave">Dónde estamos</h2>
-        <address class="space-y-4 text-[15px] not-italic leading-relaxed text-texto">
+        <h2 class="mb-5 font-sans text-xs uppercase tracking-[0.18em] text-crema-400">Dónde estamos</h2>
+        <address class="space-y-4 text-[15px] not-italic leading-relaxed text-crema-200">
           <p>C. Líbano 15, 04009 Almería<br>
              Plaza Sudáfrica 3, Aguadulce (Roquetas de Mar)</p>
-          <p><a href="tel:+34950718137" class="link-underline text-fuerte">950 71 81 37</a></p>
+          <p><a href="tel:+34950718137" class="link-underline text-crema-50">950 71 81 37</a></p>
         </address>
         <div class="mt-6 flex gap-3">
-          <a href="https://www.instagram.com/tierra_de_nadie_restaurante" target="_blank" rel="noopener me" class="text-sm text-suave hover:text-acento link-underline">Instagram</a>
-          <span class="text-suave" aria-hidden="true">·</span>
-          <a href="https://www.facebook.com/tierradenadierestaurante" target="_blank" rel="noopener me" class="text-sm text-suave hover:text-acento link-underline">Facebook</a>
+          <a href="https://www.instagram.com/tierra_de_nadie_restaurante" target="_blank" rel="noopener me" class="text-sm text-crema-400 hover:text-dorado-400 link-underline">Instagram</a>
+          <span class="text-crema-400" aria-hidden="true">·</span>
+          <a href="https://www.facebook.com/tierradenadierestaurante" target="_blank" rel="noopener me" class="text-sm text-crema-400 hover:text-dorado-400 link-underline">Facebook</a>
         </div>
       </div>
     </div>
 
-    <div class="mt-14 flex flex-col gap-5 border-t border-filete/12 pt-8 text-xs text-suave md:flex-row md:items-center md:justify-between">
+    <div class="mt-14 flex flex-col gap-5 border-t border-crema-50/12 pt-8 text-xs text-crema-400 md:flex-row md:items-center md:justify-between">
       <p>© <span id="anyo">2026</span> Restaurante Tierra de Nadie. Todos los derechos reservados.</p>
       <nav aria-label="Enlaces legales">
         <ul class="flex flex-wrap gap-x-6 gap-y-2">
-          <li><a href="/legal/aviso-legal.html" class="link-underline hover:text-fuerte">Aviso legal</a></li>
-          <li><a href="/legal/privacidad.html" class="link-underline hover:text-fuerte">Privacidad</a></li>
-          <li><a href="/legal/cookies.html" class="link-underline hover:text-fuerte">Cookies</a></li>
-          <li><button type="button" id="abrir-cookies" class="link-underline hover:text-fuerte">Preferencias de cookies</button></li>
+          <li><a href="/legal/aviso-legal.html" class="link-underline hover:text-crema-50">Aviso legal</a></li>
+          <li><a href="/legal/privacidad.html" class="link-underline hover:text-crema-50">Privacidad</a></li>
+          <li><a href="/legal/cookies.html" class="link-underline hover:text-crema-50">Cookies</a></li>
+          <li><button type="button" id="abrir-cookies" class="link-underline hover:text-crema-50">Preferencias de cookies</button></li>
         </ul>
       </nav>
     </div>
 
-    <p class="mt-8 text-[11px] leading-relaxed text-suave/70">
+    <p class="mt-8 text-[11px] leading-relaxed text-crema-400/70">
       Sitio de demostración (spec work) elaborado como propuesta comercial. No es la web oficial
       del restaurante. Fotografías provisionales y precios pendientes de confirmar.
     </p>
@@ -1220,35 +1078,35 @@
 <!-- ==========================================================================
      LIGHTBOX
      ========================================================================== -->
-<dialog id="lightbox" data-superficie="tinta" class="m-0 h-full max-h-none w-full max-w-none bg-noche-950/97 p-0 backdrop:bg-noche-950/90" aria-label="Imagen ampliada">
+<dialog id="lightbox" class="m-0 h-full max-h-none w-full max-w-none bg-carbon-950/97 p-0 backdrop:bg-carbon-950/90" aria-label="Imagen ampliada">
   <div class="relative flex h-full w-full flex-col items-center justify-center p-4 md:p-10">
-    <button type="button" id="lightbox-cerrar" class="absolute right-4 top-4 z-10 flex h-12 w-12 items-center justify-center border border-filete/25 text-fuerte transition-colors hover:bg-fuerte hover:text-fondo md:right-8 md:top-8" aria-label="Cerrar la imagen ampliada">
+    <button type="button" id="lightbox-cerrar" class="absolute right-4 top-4 z-10 flex h-12 w-12 items-center justify-center border border-crema-50/25 text-crema-50 transition-colors hover:bg-crema-50 hover:text-carbon-950 md:right-8 md:top-8" aria-label="Cerrar la imagen ampliada">
       <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
     </button>
 
-    <button type="button" id="lightbox-prev" class="absolute left-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center border border-filete/25 text-fuerte transition-colors hover:bg-fuerte hover:text-fondo md:left-8" aria-label="Imagen anterior">
+    <button type="button" id="lightbox-prev" class="absolute left-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center border border-crema-50/25 text-crema-50 transition-colors hover:bg-crema-50 hover:text-carbon-950 md:left-8" aria-label="Imagen anterior">
       <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
-    <button type="button" id="lightbox-next" class="absolute right-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center border border-filete/25 text-fuerte transition-colors hover:bg-fuerte hover:text-fondo md:right-8" aria-label="Imagen siguiente">
+    <button type="button" id="lightbox-next" class="absolute right-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center border border-crema-50/25 text-crema-50 transition-colors hover:bg-crema-50 hover:text-carbon-950 md:right-8" aria-label="Imagen siguiente">
       <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
 
     <!-- src se asigna al abrir: dejarlo vacío en el HTML provocaría una petición a la propia página -->
     <img id="lightbox-img" alt="" class="max-h-[78vh] max-w-full object-contain">
-    <p id="lightbox-caption" class="mt-5 max-w-[52ch] text-center text-sm text-texto"></p>
-    <p id="lightbox-contador" class="mt-2 text-xs uppercase tracking-[0.2em] text-suave" aria-live="polite"></p>
+    <p id="lightbox-caption" class="mt-5 max-w-[52ch] text-center text-sm text-crema-200"></p>
+    <p id="lightbox-contador" class="mt-2 text-xs uppercase tracking-[0.2em] text-crema-400" aria-live="polite"></p>
   </div>
 </dialog>
 
 <!-- ==========================================================================
      BANNER DE COOKIES
      ========================================================================== -->
-<div id="cookies" data-superficie="tinta" class="fixed inset-x-0 bottom-0 z-[90] hidden border-t border-filete/15 backdrop-blur" role="region" aria-label="Aviso de cookies">
+<div id="cookies" class="fixed inset-x-0 bottom-0 z-[90] hidden border-t border-crema-50/15 bg-carbon-900/98 backdrop-blur" role="region" aria-label="Aviso de cookies">
   <div class="mx-auto flex max-w-[1400px] flex-col gap-5 px-5 py-6 md:flex-row md:items-center md:justify-between md:px-10">
-    <p class="max-w-[70ch] text-sm leading-relaxed text-texto">
+    <p class="max-w-[70ch] text-sm leading-relaxed text-crema-200">
       Usamos solo lo imprescindible. Si aceptas, cargamos los mapas de Google Maps, que
       instalan cookies propias. Puedes verlo todo en la
-      <a href="/legal/cookies.html" class="link-underline text-acento">política de cookies</a>.
+      <a href="/legal/cookies.html" class="link-underline text-dorado-400">política de cookies</a>.
     </p>
     <div class="flex shrink-0 gap-3">
       <button type="button" id="cookies-rechazar" class="btn btn-ghost text-[11px]">Solo esenciales</button>

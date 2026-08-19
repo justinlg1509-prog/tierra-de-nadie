@@ -25,7 +25,7 @@
     var header = $('#cabecera');
     if (!header) return;
 
-    var solidas = ['backdrop-blur-md', 'border-b', 'border-filete/12', 'shadow-lg', 'shadow-black/10'];
+    var solidas = ['bg-carbon-950/92', 'backdrop-blur-md', 'border-b', 'border-crema-50/10', 'shadow-lg', 'shadow-black/30'];
     var esSolida = false;
     var pendiente = false;
 
@@ -34,12 +34,6 @@
       if (debeSerSolida !== esSolida) {
         esSolida = debeSerSolida;
         solidas.forEach(function (c) { header.classList.toggle(c, esSolida); });
-        // Arriba la cabecera va sobre la foto oscura del hero (texto en tiza);
-        // al hacer scroll pasa a papel y el texto se vuelve tinta. data-sin-fondo
-        // es lo que la mantiene transparente mientras está arriba.
-        header.dataset.superficie = esSolida ? 'papel' : 'tinta';
-        if (esSolida) { delete header.dataset.sinFondo; }
-        else { header.dataset.sinFondo = ''; }
       }
       pendiente = false;
     }
@@ -561,8 +555,8 @@
       entradas.forEach(function (entrada) {
         var i = secciones.indexOf(entrada.target);
         if (i < 0) return;
-        enlaces[i].classList.toggle('text-acento', entrada.isIntersecting);
-        enlaces[i].classList.toggle('text-texto', !entrada.isIntersecting);
+        enlaces[i].classList.toggle('text-dorado-400', entrada.isIntersecting);
+        enlaces[i].classList.toggle('text-crema-200', !entrada.isIntersecting);
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
 

@@ -3,30 +3,6 @@
 Sitio one-page para **Restaurante Tierra de Nadie**, parrilla argentina en Almería.
 HTML5 + Tailwind CSS v4 (compilado con CLI) + JavaScript vanilla. Sin framework, sin runtime.
 
-## Identidad: de dónde sale
-
-La dirección visual **no es una invención**: está sacada de la marca real del restaurante
-(rótulo de Aguadulce, paneles del logo en sala, cartas y fotos públicas del local).
-
-| Lo que tienen | Dónde se ve | Cómo entra en la web |
-|---|---|---|
-| Logotipo en **máquina de escribir desgastada**, caja baja y punto final: «Tierra de nadie.» | Rótulo y pared de sala | `--font-display: "Special Elite"`, y el logotipo de cabecera y pie escrito igual |
-| **Azul petróleo** `#346269` del rótulo | Rótulo de Aguadulce | Color de marca: botón principal, acentos y el fondo de la carta |
-| **Azul noche** `#0E1620` de los paneles donde va el logo | Paredes de sala | Superficie oscura: hero, reseñas, pie |
-| **Blanco frío** `#F5F7F7` del logotipo | Letras del rótulo | Fondo dominante del sitio |
-| **Espuma** `#89AFB2` (el mar del rótulo) | Fondo del rótulo | Acento sobre superficies oscuras |
-| **Madera** `#855727` de los listones y las mesas | Sala | Botón secundario y avisos |
-
-Los hexadecimales salen de muestrear sus propias fotos, no de elegir a ojo:
-`tools/` no lo automatiza, pero el procedimiento está en el historial de git.
-
-Tipografía de texto: **Chivo** (Omnibus-Type, Buenos Aires).
-
-> ⚠️ **Falta lo más reconocible de su marca y no se ha falsificado:** el **monograma «DE»**
-> del rótulo y el **camarero de dibujo** que usan como mascota y como marca de agua en todas
-> sus fotos. Reproducirlos a ojo quedaba peor que no ponerlos. Hay que pedirle al cliente los
-> vectores originales. Ver §3.1.
-
 > ⚠️ **No es la web oficial del restaurante.** Es una propuesta comercial no encargada.
 > Las fotos son provisionales, los precios están como `€—` y los textos legales son plantillas.
 > No publicar en un dominio público con el nombre del negocio sin la autorización del titular.
@@ -60,8 +36,7 @@ desde la raíz. Abrir `index.html` con doble clic (`file://`) **no** funciona.
 |---|---|
 | `npm run build` | Compila y minifica el CSS a `css/output.css` |
 | `npm run dev` | Igual, en modo *watch* |
-| `python tools/fetch-unsplash.py` | Regenera `/img` descargando las fotos provisionales de Unsplash |
-| `npm run img` | Regenera `/img` con los placeholders sintéticos antiguos (en desuso) |
+| `npm run img` | Regenera todos los placeholders de `/img` |
 | `node tools/dev-server.js [puerto]` | Servidor estático (por defecto 5173) |
 | `node tools/verify.js` | Batería de verificación automática (ver §6) |
 
@@ -77,8 +52,7 @@ desde la raíz. Abrir `index.html` con doble clic (`file://`) **no** funciona.
 ├── img/                       placeholders WebP + og-tierra-de-nadie.jpg
 ├── legal/                     aviso-legal · privacidad · cookies
 ├── tools/
-│   ├── fetch-unsplash.py          genera /img con fotos de Unsplash
-│   ├── generate-placeholders.py   generador sintético anterior (en desuso)
+│   ├── generate-placeholders.py   genera /img con Pillow
 │   ├── dev-server.js              servidor estático sin dependencias
 │   └── verify.js                  verificación headless vía CDP
 ├── favicon.svg · site.webmanifest · robots.txt · sitemap.xml
@@ -105,20 +79,18 @@ Búsqueda rápida: `grep -rn "TODO" index.html js/ legal/ src/`
 | 4 | **Correo de reservas** | `js/main.js` → `EMAIL_RESERVAS` | Ahora `reservas@tierradenadiealmeria.es` (no existe) |
 | 5 | **Número de WhatsApp** | `js/main.js` → `WHATSAPP` | Ahora `34600000000`. El fijo 950 no admite WhatsApp; hace falta un móvil |
 | 6 | **Precios de la carta** | `index.html` §carta | Todos los importes van como `€—` a propósito |
-| 7 | **Vectores de marca**: el monograma «DE» del rótulo y el camarero de dibujo (mascota y marca de agua de sus fotos) | Cabecera, pie, `favicon.svg` | Ahora la cabecera lleva **solo el logotipo**, que sí es fiel. El monograma se probó a ojo y quedaba peor que no ponerlo: a 32 px se leía como una «p». El favicon es una «D» de recurso |
 
 ### 3.2 Importantes
 
 | # | Qué falta | Dónde |
 |---|---|---|
-| 8 | **Carta completa**: hay 13 platos, tomados solo de los que se mencionan públicamente. Faltan secciones enteras | `index.html` §carta |
-| 9 | **Horario confirmado**: 13:00–16:00 / 20:30–00:00 y cierre los miércoles están como «sujeto a cambios». Confirmar y decidir si las dos sedes coinciden | `index.html` §locales, §reserva y JSON-LD |
-| 10 | **Teléfono propio de Aguadulce**: en una foto de su propia carta de Aguadulce aparece **950 712 261**, distinto del 950 71 81 37 que muestra la web para las dos sedes. Confirmar y separarlos | `index.html` §locales + JSON-LD |
-| 11 | **Código postal de Aguadulce**: se ha asumido 04720 | JSON-LD |
-| 12 | **Coordenadas exactas** de ambos locales. Las actuales son aproximadas a nivel de calle | JSON-LD `geo` |
-| 13 | **Año de apertura**: uno de los 4 datos de «La casa» debería ser «Desde 20XX» | `index.html` §la-casa |
-| 14 | **Reseñas literales**: ver §4 | `index.html` §resenas |
-| 15 | **Las 5 respuestas de preguntas frecuentes**: están escritas a partir de lo que ya afirmaba la web (horarios, sin gluten, grupos, terraza). Confirmar una por una, sobre todo la de terraza en ambos locales | `index.html` §preguntas + JSON-LD `FAQPage` |
+| 7 | **Carta completa**: hay 13 platos, tomados solo de los que se mencionan públicamente. Faltan secciones enteras | `index.html` §carta |
+| 8 | **Horario confirmado**: 13:00–16:00 / 20:30–00:00 y cierre los miércoles están como «sujeto a cambios». Confirmar y decidir si las dos sedes coinciden | `index.html` §locales, §reserva y JSON-LD |
+| 9 | **Teléfono propio de Aguadulce**, si lo tiene. Ahora las dos sedes muestran el mismo | `index.html` §locales + JSON-LD |
+| 10 | **Código postal de Aguadulce**: se ha asumido 04720 | JSON-LD |
+| 11 | **Coordenadas exactas** de ambos locales. Las actuales son aproximadas a nivel de calle | JSON-LD `geo` |
+| 12 | **Año de apertura**: uno de los 4 datos de «La casa» debería ser «Desde 20XX» | `index.html` §la-casa |
+| 13 | **Reseñas literales**: ver §4 | `index.html` §resenas |
 
 ---
 
@@ -140,19 +112,12 @@ reseñas en el propio sitio, entonces sí puede marcarse.
 
 ## 5. Fotografía que hay que pedir al cliente
 
-Todas las imágenes de `/img` son **fotos de banco, provisionales**, bajadas de Unsplash con
-`tools/fetch-unsplash.py` (Unsplash License: uso comercial permitido, sin atribución obligatoria;
-los créditos están en `CREDITOS-FOTOS.md`). Reservan la proporción, el nombre de archivo y el peso
-aproximado de la foto definitiva: sustituir es copiar encima, sin tocar el HTML.
-
-> ⚠️ **Dos no coinciden con lo que promete su pie y hay que cambiarlas las primeras:**
-> `galeria-03-empanadas` no muestra empanadas (son masas fritas de otro tipo) y
-> `galeria-09-croquetas` no muestra croquetas. En Unsplash no hay foto buena de ninguna de
-> las dos cosas, y son justamente dos señas de identidad de la casa.
+Todas las imágenes de `/img` son **placeholders generados**. Reservan la proporción, el nombre
+de archivo y el peso aproximado de la foto definitiva: sustituir es copiar encima, sin tocar el HTML.
 
 Formato de entrega: **WebP, calidad 72–80**. Entregar cada foto en los anchos indicados
-(el HTML ya trae el `srcset` montado). Si llegan en JPG, `tools/fetch-unsplash.py`
-sirve de referencia para las conversiones y los recortes.
+(el HTML ya trae el `srcset` montado). Si llegan en JPG, `tools/generate-placeholders.py`
+sirve de referencia para las conversiones.
 
 ### Prioridad alta — se ven en la primera pantalla
 
@@ -245,29 +210,6 @@ Lo que **no** cubre y hay que mirar a mano antes de entregar:
   barrido en `scroll` que recupera lo que quedó por encima del viewport. No quitarlo.
 - **El `<img>` del lightbox no lleva `src` en el HTML.** Un `src=""` dispara una petición a
   la propia página.
-- **La foto del hero se precarga con `imagesrcset`**, el mismo del `<img>`. Es el LCP: así la
-  petición sale al leer el `<head>` en vez de al construir el `<body>`, y no descarga de más
-  porque el navegador elige la misma candidata. Si se cambia el `srcset` del hero, hay que
-  cambiar el `preload` igual, o se bajarán dos ficheros distintos.
-- **El bloque de preguntas frecuentes va en `<details>` nativos.** Sin JS, y el texto está en
-  el DOM aunque esté plegado: es lo que exige Google para el `FAQPage`, que no admite marcado
-  sobre respuestas que el visitante no puede ver. Si se quita una pregunta del HTML, hay que
-  quitarla también del JSON-LD.
-- **El color va por superficies, no por clases sueltas.** Cada sección declara
-  `data-superficie="papel | papel-hondo | tinta | pizarra"` y eso redefine los tokens
-  semánticos (`--color-fuerte`, `--color-texto`, `--color-suave`, `--color-acento`,
-  `--color-filete`, `--color-fondo`, `--color-alza`). El HTML usa **siempre** esos nombres
-  (`text-fuerte`, `border-filete/20`…), nunca un color concreto. Cambiar una sección de clara
-  a oscura es cambiar un atributo. Si se escribe `text-tiza-50` a pelo en el HTML, se rompe
-  esa propiedad.
-- **El fondo del sitio lo pinta solo `<html>`, nunca `<body>`.** Si los dos pintan, la caja del
-  `body` tapa las capas en `-z-10`, que es donde viven la foto y el degradado del hero: el hero
-  se queda en blanco y su texto, en tiza sobre kraft, desaparece. Por eso el `body` no lleva
-  `data-superficie`: hereda del tema los valores de «papel», que son los que le tocan.
-- **Las secciones con foto a sangre llevan `data-sin-fondo`** (hero y eventos), y la cabecera
-  también mientras está arriba del todo. Heredan los colores de texto de su superficie pero
-  dejan ver lo que tienen detrás. `js/main.js` conmuta la cabecera entre `tinta` y `papel`
-  al hacer scroll.
 
 ---
 
@@ -307,34 +249,31 @@ Lo que **no** cubre y hay que mirar a mano antes de entregar:
       mueve la aguja: hoy apunta a Facebook)
 - [ ] Enlace de la web añadido en la bio de Instagram y en la página de Facebook
 
-### Dónde está desplegado ahora
+### Dónde vive el código y cómo se publica
 
 | | |
 |---|---|
-| Web | https://tierra-de-nadie.vercel.app |
-| Código | https://github.com/justinlg1509-prog/tierra-de-nadie (rama `main`) |
-| Hosting | Vercel, desplegando automáticamente en cada push a `main` |
+| Código | https://github.com/justinlg1509-prog/tierra-de-nadie (rama `main`, público) |
+| Publicado | **No.** Ahora mismo el sitio no está en línea en ningún sitio |
 
-Lo que **no** se publica lo marca `.vercelignore`: `src/`, `tools/`, `.claude/`, este README y
-`PROPUESTA.md`. Como el sitio se sirve desde la raíz, sin esa lista quedarían accesibles por URL.
-Si algún día el HTML pasa a referenciar algo de ahí, hay que sacarlo del `.vercelignore`.
+El repositorio ya trae la configuración lista para Vercel, pero **nada está desplegado**:
+el proyecto de Vercel se ha eliminado y la integración con GitHub está desconectada, así que
+hacer `push` **no** publica nada.
 
-El sitio se sirve **como estático desde la raíz**: `vercel.json` deja `installCommand` y
-`buildCommand` vacíos, así que Vercel no compila nada, solo publica los ficheros del repo.
+- `vercel.json` sirve el sitio **como estático desde la raíz**: deja `installCommand` y
+  `buildCommand` vacíos, así que Vercel no compila. **Consecuencia:** `css/output.css` va
+  versionado y es lo que se publicaría; si tocas `src/input.css`, ejecuta `npm run build` y
+  commitea el CSS, o subirías los estilos viejos.
+- `vercel.json` añade además `X-Robots-Tag: noindex, nofollow` en todas las respuestas, a
+  propósito: mientras esto sea una propuesta no aprobada no debe indexarse ni competir en
+  Google con el negocio real. Esa cabecera manda por encima del `<meta name="robots">` del
+  HTML. **Al publicar de verdad hay que quitar ese bloque**, o la web oficial nacerá
+  invisible para los buscadores.
+- `.vercelignore` deja fuera `src/`, `tools/`, `.claude/`, este README y `PROPUESTA.md`:
+  como se serviría la raíz tal cual, sin esa lista quedarían accesibles por URL.
 
-> ⚠️ **Consecuencia:** `css/output.css` va versionado y es lo que se publica tal cual.
-> Si tocas `src/input.css`, hay que ejecutar `npm run build` **y commitear el CSS resultante**,
-> o el despliegue saldrá con los estilos viejos.
-
-`vercel.json` también resuelve, para este despliegue de propuesta, varios puntos del checklist
-técnico de arriba: cabeceras `X-Content-Type-Options`, `Referrer-Policy` y `Permissions-Policy`,
-`Cache-Control` de un día para `/img`, y HTTPS y compresión que ya pone Vercel por su cuenta.
-
-Y añade **`X-Robots-Tag: noindex, nofollow` en todas las respuestas**, a propósito: mientras esto
-sea una propuesta no aprobada, no debe indexarse ni competir en Google con el negocio real. Esa
-cabecera manda por encima del `<meta name="robots" content="index, follow">` del HTML, que se ha
-dejado intacto para el dominio definitivo. **Al publicar de verdad hay que quitar ese bloque de
-`vercel.json`**, o la web oficial nacerá invisible para los buscadores.
+Para volver a publicarlo cuando el cliente lo apruebe: `npx vercel link`, `npx vercel --prod`
+y, si se quiere despliegue automático, `npx vercel git connect`.
 
 ---
 
@@ -342,18 +281,15 @@ dejado intacto para el dominio definitivo. **Al publicar de verdad hay que quita
 
 Objetivo WCAG 2.1 AA. Lo que ya está resuelto:
 
-- Contrastes medidos con `node tools/contrast.js`, **las 25 combinaciones de las cuatro
-  superficies**. Las más ajustadas: espuma `#89AFB2` sobre la carta **4,90:1** y texto suave
-  `#96A9AC` sobre la carta **4,75:1**. El resto va de 5,4:1 a 16,9:1.
-  El azul petróleo de la marca `#346269` no llega a 4,5:1 sobre el blanco frío, así que en
-  texto se usa una versión más oscura (`#2A5158`, 8,1:1) y el `#346269` queda para rellenos.
-  La espuma `#89AFB2` es al revés: preciosa sobre oscuro (7,7:1) e ilegible sobre claro, así
-  que **solo** aparece sobre las superficies oscuras.
+- Contrastes medidos con `node tools/contrast.js` sobre el fondo carbón `#141210`:
+  crema `#F4EDE3` **16,08:1** · crema apagado `#C8BFB2` **10,28:1** · crema tenue `#A69B8C`
+  **6,84:1** · dorado `#D9A441` **8,31:1** · crema sobre botón brasa **4,66:1** · carbón sobre
+  botón dorado **8,31:1** · mensaje de error `#E8845F` **6,58:1** · badge sin gluten `#B9C49B`
+  **10,17:1**. El brasa `#B4472A` da **3,45:1**, así que **solo** se usa en texto grande,
+  bordes y fondos, nunca en texto pequeño.
   Si se toca cualquier color de `src/input.css`, volver a pasar `node tools/contrast.js`.
 - HTML semántico con `header` / `nav` / `main` / `footer`, un solo `h1` y jerarquía sin saltos.
-- Foco visible en todo el sitio y enlace «Saltar al contenido». El anillo de foco es petróleo
-  sobre las superficies claras y espuma sobre las oscuras, porque ninguno de los dos se ve
-  bien en las dos.
+- Foco visible en todo el sitio (`:focus-visible` con anillo dorado) y enlace «Saltar al contenido».
 - Pestañas de la carta con el patrón WAI-ARIA completo: flechas, `Home`/`End` y `tabindex` móvil.
 - Menú móvil con trampa de foco, `Escape`, `aria-expanded` y devolución del foco al cerrar.
 - Lightbox sobre `<dialog>` nativo: foco y `Escape` los gestiona el navegador; flechas para navegar.
