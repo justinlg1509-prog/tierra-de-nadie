@@ -3,15 +3,29 @@
 Sitio one-page para **Restaurante Tierra de Nadie**, parrilla argentina en Almería.
 HTML5 + Tailwind CSS v4 (compilado con CLI) + JavaScript vanilla. Sin framework, sin runtime.
 
-Dirección visual: **papel de carnicería**. Fondo kraft, tinta negra, la brasa del logo para las
-acciones y la carta sobre pizarra. Tipografías **Anton** para rótulo y **Chivo** (Omnibus-Type,
-Buenos Aires) para texto.
+## Identidad: de dónde sale
 
-Anton es condensada: además de dar el registro de chapa esmaltada y cartel de mercado, deja que
-titulares largos en castellano quepan en menos líneas. Si algún día se prefiere que las dos
-tipografías salgan de fundición porteña, la sustituta natural es **Archivo** (la misma familia
-que Chivo) en su eje condensado con grosor 800; se cambia en `--font-display` y en el enlace a
-Google Fonts de las cuatro páginas.
+La dirección visual **no es una invención**: está sacada de la marca real del restaurante
+(rótulo de Aguadulce, paneles del logo en sala, cartas y fotos públicas del local).
+
+| Lo que tienen | Dónde se ve | Cómo entra en la web |
+|---|---|---|
+| Logotipo en **máquina de escribir desgastada**, caja baja y punto final: «Tierra de nadie.» | Rótulo y pared de sala | `--font-display: "Special Elite"`, y el logotipo de cabecera y pie escrito igual |
+| **Azul petróleo** `#346269` del rótulo | Rótulo de Aguadulce | Color de marca: botón principal, acentos y el fondo de la carta |
+| **Azul noche** `#0E1620` de los paneles donde va el logo | Paredes de sala | Superficie oscura: hero, reseñas, pie |
+| **Blanco frío** `#F5F7F7` del logotipo | Letras del rótulo | Fondo dominante del sitio |
+| **Espuma** `#89AFB2` (el mar del rótulo) | Fondo del rótulo | Acento sobre superficies oscuras |
+| **Madera** `#855727` de los listones y las mesas | Sala | Botón secundario y avisos |
+
+Los hexadecimales salen de muestrear sus propias fotos, no de elegir a ojo:
+`tools/` no lo automatiza, pero el procedimiento está en el historial de git.
+
+Tipografía de texto: **Chivo** (Omnibus-Type, Buenos Aires).
+
+> ⚠️ **Falta lo más reconocible de su marca y no se ha falsificado:** el **monograma «DE»**
+> del rótulo y el **camarero de dibujo** que usan como mascota y como marca de agua en todas
+> sus fotos. Reproducirlos a ojo quedaba peor que no ponerlos. Hay que pedirle al cliente los
+> vectores originales. Ver §3.1.
 
 > ⚠️ **No es la web oficial del restaurante.** Es una propuesta comercial no encargada.
 > Las fotos son provisionales, los precios están como `€—` y los textos legales son plantillas.
@@ -91,19 +105,20 @@ Búsqueda rápida: `grep -rn "TODO" index.html js/ legal/ src/`
 | 4 | **Correo de reservas** | `js/main.js` → `EMAIL_RESERVAS` | Ahora `reservas@tierradenadiealmeria.es` (no existe) |
 | 5 | **Número de WhatsApp** | `js/main.js` → `WHATSAPP` | Ahora `34600000000`. El fijo 950 no admite WhatsApp; hace falta un móvil |
 | 6 | **Precios de la carta** | `index.html` §carta | Todos los importes van como `€—` a propósito |
+| 7 | **Vectores de marca**: el monograma «DE» del rótulo y el camarero de dibujo (mascota y marca de agua de sus fotos) | Cabecera, pie, `favicon.svg` | Ahora la cabecera lleva **solo el logotipo**, que sí es fiel. El monograma se probó a ojo y quedaba peor que no ponerlo: a 32 px se leía como una «p». El favicon es una «D» de recurso |
 
 ### 3.2 Importantes
 
 | # | Qué falta | Dónde |
 |---|---|---|
-| 7 | **Carta completa**: hay 13 platos, tomados solo de los que se mencionan públicamente. Faltan secciones enteras | `index.html` §carta |
-| 8 | **Horario confirmado**: 13:00–16:00 / 20:30–00:00 y cierre los miércoles están como «sujeto a cambios». Confirmar y decidir si las dos sedes coinciden | `index.html` §locales, §reserva y JSON-LD |
-| 9 | **Teléfono propio de Aguadulce**, si lo tiene. Ahora las dos sedes muestran el mismo | `index.html` §locales + JSON-LD |
-| 10 | **Código postal de Aguadulce**: se ha asumido 04720 | JSON-LD |
-| 11 | **Coordenadas exactas** de ambos locales. Las actuales son aproximadas a nivel de calle | JSON-LD `geo` |
-| 12 | **Año de apertura**: uno de los 4 datos de «La casa» debería ser «Desde 20XX» | `index.html` §la-casa |
-| 13 | **Reseñas literales**: ver §4 | `index.html` §resenas |
-| 14 | **Las 5 respuestas de preguntas frecuentes**: están escritas a partir de lo que ya afirmaba la web (horarios, sin gluten, grupos, terraza). Confirmar una por una, sobre todo la de terraza en ambos locales | `index.html` §preguntas + JSON-LD `FAQPage` |
+| 8 | **Carta completa**: hay 13 platos, tomados solo de los que se mencionan públicamente. Faltan secciones enteras | `index.html` §carta |
+| 9 | **Horario confirmado**: 13:00–16:00 / 20:30–00:00 y cierre los miércoles están como «sujeto a cambios». Confirmar y decidir si las dos sedes coinciden | `index.html` §locales, §reserva y JSON-LD |
+| 10 | **Teléfono propio de Aguadulce**: en una foto de su propia carta de Aguadulce aparece **950 712 261**, distinto del 950 71 81 37 que muestra la web para las dos sedes. Confirmar y separarlos | `index.html` §locales + JSON-LD |
+| 11 | **Código postal de Aguadulce**: se ha asumido 04720 | JSON-LD |
+| 12 | **Coordenadas exactas** de ambos locales. Las actuales son aproximadas a nivel de calle | JSON-LD `geo` |
+| 13 | **Año de apertura**: uno de los 4 datos de «La casa» debería ser «Desde 20XX» | `index.html` §la-casa |
+| 14 | **Reseñas literales**: ver §4 | `index.html` §resenas |
+| 15 | **Las 5 respuestas de preguntas frecuentes**: están escritas a partir de lo que ya afirmaba la web (horarios, sin gluten, grupos, terraza). Confirmar una por una, sobre todo la de terraza en ambos locales | `index.html` §preguntas + JSON-LD `FAQPage` |
 
 ---
 
@@ -327,18 +342,17 @@ dejado intacto para el dominio definitivo. **Al publicar de verdad hay que quita
 
 Objetivo WCAG 2.1 AA. Lo que ya está resuelto:
 
-- Contrastes medidos con `node tools/contrast.js`, **las 23 combinaciones de las cuatro
-  superficies**. Las más ajustadas: texto suave `#5A5243` sobre papel hondo **5,00:1**,
-  kraft sobre botón brasa **4,73:1**, acento `#96371F` sobre papel hondo **4,75:1** y
-  tiza suave `#9A917D` sobre pizarra **4,66:1**. El resto va de 5,4:1 a 13,9:1.
-  Dos apuntes de por qué la paleta es la que es: el brasa del logo `#B4472A` solo da 4,0:1
-  sobre kraft, así que en texto se usa una versión más oscura (`#96371F`, 5,4:1) y el `#B4472A`
-  queda para rellenos y bordes; y el dorado `#D9A441` es ilegible sobre claro (2:1), así que
-  **solo** aparece sobre tinta y pizarra.
+- Contrastes medidos con `node tools/contrast.js`, **las 25 combinaciones de las cuatro
+  superficies**. Las más ajustadas: espuma `#89AFB2` sobre la carta **4,90:1** y texto suave
+  `#96A9AC` sobre la carta **4,75:1**. El resto va de 5,4:1 a 16,9:1.
+  El azul petróleo de la marca `#346269` no llega a 4,5:1 sobre el blanco frío, así que en
+  texto se usa una versión más oscura (`#2A5158`, 8,1:1) y el `#346269` queda para rellenos.
+  La espuma `#89AFB2` es al revés: preciosa sobre oscuro (7,7:1) e ilegible sobre claro, así
+  que **solo** aparece sobre las superficies oscuras.
   Si se toca cualquier color de `src/input.css`, volver a pasar `node tools/contrast.js`.
 - HTML semántico con `header` / `nav` / `main` / `footer`, un solo `h1` y jerarquía sin saltos.
-- Foco visible en todo el sitio y enlace «Saltar al contenido». El anillo de foco es brasa
-  sobre las superficies claras y dorado sobre las oscuras, porque ninguno de los dos se ve
+- Foco visible en todo el sitio y enlace «Saltar al contenido». El anillo de foco es petróleo
+  sobre las superficies claras y espuma sobre las oscuras, porque ninguno de los dos se ve
   bien en las dos.
 - Pestañas de la carta con el patrón WAI-ARIA completo: flechas, `Home`/`End` y `tabindex` móvil.
 - Menú móvil con trampa de foco, `Escape`, `aria-expanded` y devolución del foco al cerrar.

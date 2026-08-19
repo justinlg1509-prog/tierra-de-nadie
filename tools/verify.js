@@ -344,9 +344,10 @@ async function main() {
     errores.forEach((c) => fallo('[' + p + '] consola → ' + c));
     red.filter((t) => !/fonts\./.test(t)).forEach((r) => fallo('[' + p + '] red → ' + r));
     if (info.h1 !== 1) fallo('[' + p + '] h1 = ' + info.h1);
-    // kraft-100 (#E9DCC4): el fondo de la superficie "papel". Si sale otra cosa,
-    // o no ha cargado output.css o se ha tocado el token sin actualizar esto.
-    if (info.estiloAplicado !== 'rgb(233, 220, 196)') fallo('[' + p + '] los estilos no se aplican (' + info.estiloAplicado + ')');
+    // sal-50 (#F5F7F7): el fondo de la superficie "papel", el blanco frio del
+    // logotipo. Si sale otra cosa, o no ha cargado output.css o se ha tocado el
+    // token sin actualizar esto.
+    if (info.estiloAplicado !== 'rgb(245, 247, 247)') fallo('[' + p + '] los estilos no se aplican (' + info.estiloAplicado + ')');
     console.log('\n=== ' + p + ' ===\n  ' + info.titulo + ' · h1=' + info.h1 + ' · estilos OK');
   }
 

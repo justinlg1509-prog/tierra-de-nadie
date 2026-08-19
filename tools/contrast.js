@@ -12,45 +12,47 @@ const ratio = (a, b) => {
   return (x + 0.05) / (y + 0.05);
 };
 
-const KRAFT_100 = '#E9DCC4';
-const KRAFT_200 = '#DCCFB2';
-const TINTA_900 = '#1F1B16';
-const PIZARRA_900 = '#232B23';
+const SAL_50 = '#F5F7F7';
+const SAL_100 = '#E9EFEF';
+const NOCHE_900 = '#0E1620';
+const PETROLEO_700 = '#1E3D43';
 
 // [descripción, primer plano, descripción del fondo, fondo, ¿texto pequeño?]
 const PARES = [
-  // --- superficie papel: el fondo dominante del sitio ---
-  ['fuerte  tinta-900 #1F1B16', TINTA_900, 'kraft-100 #E9DCC4', KRAFT_100, true],
-  ['texto   tinta-700 #3A332A', '#3A332A', 'kraft-100 #E9DCC4', KRAFT_100, true],
-  ['suave   tinta-500 #5A5243', '#5A5243', 'kraft-100 #E9DCC4', KRAFT_100, true],
-  ['acento  brasa-600 #96371F', '#96371F', 'kraft-100 #E9DCC4', KRAFT_100, true],
-  ['badge SG          #4A5238', '#4A5238', 'kraft-100 #E9DCC4', KRAFT_100, true],
+  // --- superficie papel: el fondo dominante ---
+  ['fuerte  noche-900  #0E1620', NOCHE_900, 'sal-50  #F5F7F7', SAL_50, true],
+  ['texto   noche-700  #26333F', '#26333F', 'sal-50  #F5F7F7', SAL_50, true],
+  ['suave   noche-500  #4A5A66', '#4A5A66', 'sal-50  #F5F7F7', SAL_50, true],
+  ['acento  petroleo-600 #2A5158', '#2A5158', 'sal-50  #F5F7F7', SAL_50, true],
+  ['madera-700         #855727', '#855727', 'sal-50  #F5F7F7', SAL_50, true],
+  ['badge SG           #47543C', '#47543C', 'sal-50  #F5F7F7', SAL_50, true],
+  ['error              #A3341F', '#A3341F', 'sal-50  #F5F7F7', SAL_50, true],
 
   // --- superficie papel-hondo ---
-  ['fuerte  tinta-900 #1F1B16', TINTA_900, 'kraft-200 #DCCFB2', KRAFT_200, true],
-  ['texto   tinta-700 #3A332A', '#3A332A', 'kraft-200 #DCCFB2', KRAFT_200, true],
-  ['suave   tinta-500 #5A5243', '#5A5243', 'kraft-200 #DCCFB2', KRAFT_200, true],
-  ['acento  brasa-600 #96371F', '#96371F', 'kraft-200 #DCCFB2', KRAFT_200, true],
+  ['fuerte  noche-900  #0E1620', NOCHE_900, 'sal-100 #E9EFEF', SAL_100, true],
+  ['texto   noche-700  #26333F', '#26333F', 'sal-100 #E9EFEF', SAL_100, true],
+  ['suave   noche-500  #4A5A66', '#4A5A66', 'sal-100 #E9EFEF', SAL_100, true],
+  ['acento  petroleo-600 #2A5158', '#2A5158', 'sal-100 #E9EFEF', SAL_100, true],
 
-  // --- superficie pizarra: la carta ---
-  ['fuerte  tiza-50   #EDE7D8', '#EDE7D8', 'pizarra-900 #232B23', PIZARRA_900, true],
-  ['texto   tiza-300  #C3BBA6', '#C3BBA6', 'pizarra-900 #232B23', PIZARRA_900, true],
-  ['suave   tiza-500  #9A917D', '#9A917D', 'pizarra-900 #232B23', PIZARRA_900, true],
-  ['acento  dorado    #D9A441', '#D9A441', 'pizarra-900 #232B23', PIZARRA_900, true],
-  ['badge SG          #B9C49B', '#B9C49B', 'pizarra-900 #232B23', PIZARRA_900, true],
+  // --- superficie tinta: hero, resenas, pie ---
+  ['fuerte  sal-50     #F5F7F7', SAL_50, 'noche-900 #0E1620', NOCHE_900, true],
+  ['texto              #C2CDD3', '#C2CDD3', 'noche-900 #0E1620', NOCHE_900, true],
+  ['suave              #8D9AA5', '#8D9AA5', 'noche-900 #0E1620', NOCHE_900, true],
+  ['acento  espuma-300 #89AFB2', '#89AFB2', 'noche-900 #0E1620', NOCHE_900, true],
+  ['madera-500         #AE8457', '#AE8457', 'noche-900 #0E1620', NOCHE_900, true],
+  ['badge SG           #BCCFA4', '#BCCFA4', 'noche-900 #0E1620', NOCHE_900, true],
 
-  // --- superficie tinta: hero, reseñas, pie ---
-  ['fuerte  tiza-50   #EDE7D8', '#EDE7D8', 'tinta-900 #1F1B16', TINTA_900, true],
-  ['texto   tiza-300  #C3BBA6', '#C3BBA6', 'tinta-900 #1F1B16', TINTA_900, true],
-  ['suave   tiza-500  #9A917D', '#9A917D', 'tinta-900 #1F1B16', TINTA_900, true],
-  ['acento  dorado    #D9A441', '#D9A441', 'tinta-900 #1F1B16', TINTA_900, true],
-  ['error             #E8845F', '#E8845F', 'tinta-900 #1F1B16', TINTA_900, true],
+  // --- superficie pizarra: la carta, en el petroleo del rotulo ---
+  ['fuerte  sal-50     #F5F7F7', SAL_50, 'petroleo-700 #1E3D43', PETROLEO_700, true],
+  ['texto   espuma-200 #B3CBCC', '#B3CBCC', 'petroleo-700 #1E3D43', PETROLEO_700, true],
+  ['suave              #96A9AC', '#96A9AC', 'petroleo-700 #1E3D43', PETROLEO_700, true],
+  ['acento  espuma-300 #89AFB2', '#89AFB2', 'petroleo-700 #1E3D43', PETROLEO_700, true],
 
   // --- rellenos ---
-  ['kraft-50 en botón brasa', '#F6EFE0', 'brasa-500 #B4472A', '#B4472A', true],
-  ['tinta en botón dorado', '#14110D', 'dorado-400 #D9A441', '#D9A441', true],
-  ['kraft-50 en chapa del hero', '#F6EFE0', 'brasa-500 #B4472A', '#B4472A', false],
-  ['brasa-500 como filete', '#B4472A', 'kraft-100 #E9DCC4', KRAFT_100, false],
+  ['sal-50 en boton petroleo', SAL_50, 'petroleo-500 #346269', '#346269', true],
+  ['sal-50 en boton madera', SAL_50, 'madera-700 #855727', '#855727', true],
+  ['noche en enlace de salto', '#070B11', 'espuma-300 #89AFB2', '#89AFB2', true],
+  ['sal-50 en la chapa del hero', SAL_50, 'petroleo-500 #346269', '#346269', false],
 ];
 
 let fallos = 0;
