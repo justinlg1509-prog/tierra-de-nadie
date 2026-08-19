@@ -253,12 +253,13 @@ Lo que **no** cubre y hay que mirar a mano antes de entregar:
 
 | | |
 |---|---|
+| Web | https://tierra-de-nadie.vercel.app |
 | Código | https://github.com/justinlg1509-prog/tierra-de-nadie (rama `main`, público) |
-| Publicado | **No.** Ahora mismo el sitio no está en línea en ningún sitio |
+| Hosting | Vercel, desplegando automáticamente en cada push a `main` |
 
-El repositorio ya trae la configuración lista para Vercel, pero **nada está desplegado**:
-el proyecto de Vercel se ha eliminado y la integración con GitHub está desconectada, así que
-hacer `push` **no** publica nada.
+> ⚠️ Está publicado en una URL de Vercel, **no** en un dominio con el nombre del negocio, y
+> con `noindex` puesto (ver más abajo). Es el enlace para enseñarle la propuesta al cliente,
+> no la web oficial. Sigue en pie el aviso del principio de este README.
 
 - `vercel.json` sirve el sitio **como estático desde la raíz**: deja `installCommand` y
   `buildCommand` vacíos, así que Vercel no compila. **Consecuencia:** `css/output.css` va
@@ -272,8 +273,10 @@ hacer `push` **no** publica nada.
 - `.vercelignore` deja fuera `src/`, `tools/`, `.claude/`, este README y `PROPUESTA.md`:
   como se serviría la raíz tal cual, sin esa lista quedarían accesibles por URL.
 
-Para volver a publicarlo cuando el cliente lo apruebe: `npx vercel link`, `npx vercel --prod`
-y, si se quiere despliegue automático, `npx vercel git connect`.
+Para bajarlo de línea: `npx vercel remove tierra-de-nadie` elimina el proyecto y sus
+despliegues, y `npx vercel git disconnect` corta el despliegue automático (conviene hacer eso
+primero, o el siguiente `push` lo vuelve a publicar). Para volver a subirlo: `npx vercel link`
+y `npx vercel --prod`.
 
 ---
 
